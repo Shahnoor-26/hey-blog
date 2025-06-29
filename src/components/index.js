@@ -4,5 +4,7 @@ import Container from "./Container/Container.jsx";
 import Logo from "./Logo.jsx";
 import Button from "./Button.jsx";
 import Logout from "./Header/Logout.jsx";
+import Input from "./Input.jsx";
+import Select from "./Select.jsx";
 
-export { Header, Footer, Logo, Logout, Container, Button };
+export { Header, Footer, Logo, Logout, Container, Button, Input, Select };
