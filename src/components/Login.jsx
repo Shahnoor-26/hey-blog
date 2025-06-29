@@ -37,7 +37,9 @@ const Login = () => {
         <h2>Sign Into Your Account</h2>
         <p>
           <span>Don&apos;t have an account?&nbsp;</span>
-          <Link>Create Account</Link>
+          <Link to={"/signup"} className="">
+            Create Account
+          </Link>
         </p>
         {error && <p>{error}</p>}
         <form onSubmit={handleSubmit(login)}>
