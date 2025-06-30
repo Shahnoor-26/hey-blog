@@ -1,7 +1,13 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 
-const EditorBox = ({ name, control, label, initialValue = "", ...props }) => {
+const EditorBox = ({
+  name = "",
+  label = "",
+  initialValue = "",
+  control,
+  ...props
+}) => {
   return (
     <div>
       {label && <label>{label}</label>}

@@ -1,6 +1,7 @@
 import Header from "./Header/Header.jsx";
 import Footer from "./Footer/Footer.jsx";
 import Container from "./Container/Container.jsx";
+import EditorBox from "./EditorBox/EditorBox.jsx";
 import Logo from "./Logo.jsx";
 import Button from "./Button.jsx";
 import Logout from "./Header/Logout.jsx";
@@ -22,6 +23,7 @@ export {
   Protected,
   Login,
   Signup,
+  EditorBox,
   Input,
   Select,
 };
