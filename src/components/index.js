@@ -11,6 +11,7 @@ import Card from "./Card.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Protected from "./Protected.jsx";
+import MetaForm from "./Article/MetaForm.jsx";
 
 export {
   Header,
@@ -24,6 +25,7 @@ export {
   Login,
   Signup,
   EditorBox,
+  MetaForm,
   Input,
   Select,
 };
