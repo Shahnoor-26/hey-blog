@@ -19,7 +19,15 @@ const Layout = () => {
       .finally(() => updateSpin(false));
   }, []);
 
-  return (
+  return spin ? (
+    <>
+      <Header />
+      <main>
+        <div>Loading</div>
+      </main>
+      <Footer />
+    </>
+  ) : (
     <>
       <Header />
       <main>
