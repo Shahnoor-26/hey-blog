@@ -124,7 +124,11 @@ const MetaForm = ({ article }) => {
         </div>
         {article && (
           <div>
-            <img src={Service.fileView(article.picture)} alt={article.title} />
+            <img
+              src={article.picture ? Service.fileView(article.picture) : null}
+              width={100}
+              alt={article.title}
+            />
           </div>
         )}
 

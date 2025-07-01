@@ -148,7 +148,7 @@ class DataService {
       if (link) return link;
       else return false;
     } catch (error) {
-      console.log("Appwrite Service Error: File Preview ", error);
+      console.log("Appwrite Service Error: File View ", error);
       return false;
     }
   };

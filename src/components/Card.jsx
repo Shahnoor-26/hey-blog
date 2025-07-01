@@ -6,7 +6,11 @@ const Card = ({ $id, title, picture }) => {
     <Link to={`/article/${$id}`}>
       <div>
         <div>
-          <img src={Service.fileView(picture)} alt={title} className="" />
+          <img
+            src={picture ? Service.fileView(picture) : null}
+            width={100}
+            alt={title}
+          />
         </div>
         <h3>{title}</h3>
       </div>
