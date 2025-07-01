@@ -40,13 +40,17 @@ const Article = () => {
     }
   };
 
-  console.log(article);
+  let source = null;
+  if (article) {
+    source = `${Service.fileView(article.picture)}&mode=admin`;
+    console.log(source, article, article.picture);
+  }
 
   return (
     article && (
       <Container>
         <div>
-          <img src={Service.filePreview(article.picture)} alt={article.title} />
+          <img src={source} width={200} alt={article.title} />
         </div>
         {isAuthor && (
           <div>

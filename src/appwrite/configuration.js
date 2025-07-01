@@ -141,9 +141,9 @@ class DataService {
     }
   };
 
-  filePreview = (fileId) => {
+  fileView = (fileId) => {
     try {
-      const link = this.storage.getFilePreview(env.appwrite_storage_id, fileId);
+      const link = this.storage.getFileView(env.appwrite_storage_id, fileId);
 
       if (link) return link;
       else return false;
