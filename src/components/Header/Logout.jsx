@@ -10,7 +10,7 @@ const Logout = () => {
       .then(() => dispatch(logout()))
       .catch((error) => console.log("Logout Button Error ", error));
   };
-  return <Button children={"Logout"} className="" />;
+  return <Button children={"Logout"} className="" onClick={handleLogout} />;
 };
 
 export default Logout;

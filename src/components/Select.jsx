@@ -1,16 +1,14 @@
-import { forwardRef, useId } from "react";
+import { useId } from "react";
 
-const Select = ({ label, options = [], className = "", ...props }, ref) => {
+const Select = (
+  { options = [], label = "", className = "", ...props },
+  ref
+) => {
   const selectId = useId();
-
   return (
     <div className="h-auto w-full">
-      {label && (
-        <label htmlFor={selectId} className="">
-          {label}
-        </label>
-      )}
-      <select id={selectId} ref={ref} className={`${className}`}>
+      {label && <label htmlFor={selectId}>{label}</label>}
+      <select id={selectId} ref={ref} className={`${className}`} {...props}>
         {options &&
           options.map((option) => (
             <option key={option} value={option}>
@@ -22,4 +20,4 @@ const Select = ({ label, options = [], className = "", ...props }, ref) => {
   );
 };
 
-export default forwardRef(Select);
+export default Select;
