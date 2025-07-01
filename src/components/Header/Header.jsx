@@ -1,11 +1,9 @@
-import {} from "react";
 import { useSelector } from "react-redux";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Container, Logo, Logout } from "../index.js";
 
 const Header = () => {
   const status = useSelector((state) => state.auth.status);
-  // const navigate = useNavigate();
 
   const links = [
     {
@@ -40,15 +38,15 @@ const Header = () => {
       <Container>
         <nav>
           <div>
-            {/* <Link to={"/"} >
+            <Link to={"/"}>
               <Logo />
-            </Link> */}
+            </Link>
             <ul>
               {links.map(
                 (link) =>
                   link.active && (
                     <li key={link.name}>
-                      {/* <NavLink to={link.source}>{link.name}</NavLink> */}
+                      <NavLink to={link.source}>{link.name}</NavLink>
                     </li>
                   )
               )}

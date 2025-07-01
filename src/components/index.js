@@ -11,7 +11,7 @@ import Card from "./Card.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Protected from "./Protected.jsx";
-import MetaForm from "./Article/MetaForm.jsx";
+import MetaForm from "./MetaForm/MetaForm.jsx";
 
 export {
   Header,

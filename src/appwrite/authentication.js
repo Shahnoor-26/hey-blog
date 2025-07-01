@@ -22,7 +22,7 @@ class AuthService {
         name
       );
 
-      if (user) await this.login(email, password);
+      if (user) await this.login({ email, password });
       else return user;
     } catch (error) {
       console.log("Appwrite Service Error: Signup ", error);

@@ -1,5 +1,6 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
+import { env } from "../../env/env.js";
 
 const EditorBox = ({
   name = "",
@@ -16,6 +17,7 @@ const EditorBox = ({
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
+            apiKey={env.tiny_editor_api_key}
             initialValue={initialValue}
             init={{
               initialValue: initialValue,

@@ -4,4 +4,5 @@ export const env = {
   appwrite_storage_id: String(import.meta.env.VITE_APPWRITE_STORAGE_ID),
   appwrite_database_id: String(import.meta.env.VITE_APPWRITE_DATABASE_ID),
   appwrite_collection_id: String(import.meta.env.VITE_APPWRITE_COLLECTION_ID),
+  tiny_editor_api_key: String(import.meta.env.VITE_EDITOR_API_KEY),
 };

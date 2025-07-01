@@ -12,14 +12,12 @@ const MetaForm = ({ article }) => {
         documentId: article ? article.documentId : "",
         title: article ? article.title : "",
         content: article ? article.content : "",
-        // picture: article ? article.picture : "",
         status: article ? article.status : "active",
-        // userId: article ? article.userId : "",
       },
     });
 
   const navigate = useNavigate();
-  const userdata = useSelector((state) => state.auth.userdata);
+  const userdata = useSelector((state) => state.auth.userdata.userdata);
 
   const submit = async (data) => {
     try {
@@ -45,7 +43,7 @@ const MetaForm = ({ article }) => {
 
         const metadata = await Service.documentCreate({
           ...data,
-          userId: userdata.userId,
+          userId: userdata.$id,
         });
 
         if (metadata) navigate(`/article/${metadata.$id}`);
@@ -61,7 +59,7 @@ const MetaForm = ({ article }) => {
         return data
           .trim()
           .toLowerCase()
-          .replace(/^[a-zA-Z\d\s]+/g, "-")
+          .replace(/[^a-zA-Z\d\s]+/g, "-")
           .replace(/\s/g, "-");
       }
       return "";

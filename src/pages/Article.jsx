@@ -10,7 +10,7 @@ const Article = () => {
   const documentId = useParams();
   const navigate = useNavigate();
 
-  const userdata = useSelector((state) => state.auth.userdata);
+  const userdata = useSelector((state) => state.auth.userdata.userdata);
 
   const isAuthor =
     article && userdata ? article.userId === userdata.$id : false;
