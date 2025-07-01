@@ -10,13 +10,13 @@ const EditArticle = () => {
 
   useEffect(() => {
     if (documentId) {
-      Service.findDocument(documentId)
+      Service.findDocument(documentId.documentId)
         .then((document) => {
           if (document) updateArticle(document);
         })
         .catch((error) => console.log("Unable To Find Article! ", error));
     } else navigate("/");
-  }, [documentId, navigate]);
+  }, [documentId.documentId, navigate]);
 
   return (
     article && (
