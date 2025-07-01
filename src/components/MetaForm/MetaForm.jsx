@@ -24,20 +24,20 @@ const MetaForm = ({ article }) => {
       if (article) {
         const file = data.picture[0]
           ? await Service.fileUpload(data.picture[0])
-          : "";
+          : null;
 
         if (file) Service.fileDelete(article.picture);
 
         const metadata = await Service.documentUpdate(article.$id, {
           ...data,
-          picture: file ? file.$id : "",
+          picture: file ? file.$id : article.picture,
         });
 
         if (metadata) navigate(`/article/${metadata.$id}`);
       } else {
         const file = data.picture[0]
           ? await Service.fileUpload(data.picture[0])
-          : "";
+          : null;
 
         if (file) data.picture = file.$id;
 
