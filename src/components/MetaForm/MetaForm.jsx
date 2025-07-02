@@ -17,7 +17,7 @@ const MetaForm = ({ article }) => {
     });
 
   const navigate = useNavigate();
-  const userdata = useSelector((state) => state.auth.userdata.userdata);
+  const userdata = useSelector((state) => state.auth.userdata);
 
   const submit = async (data) => {
     try {
@@ -79,6 +79,8 @@ const MetaForm = ({ article }) => {
 
     return () => subscription.unsubscribe();
   }, [watch, transformer, setValue]);
+
+  console.table([userdata, article]);
 
   return (
     <form onSubmit={handleSubmit(submit)}>

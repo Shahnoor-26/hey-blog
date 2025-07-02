@@ -11,14 +11,15 @@ const Article = () => {
 
   const navigate = useNavigate();
 
-  const userdata = useSelector((state) => state.auth.userdata.userdata);
+  const userdata = useSelector((state) => state.auth.userdata);
 
   useEffect(() => {
     if (documentId) {
       Service.findDocument(documentId.documentId)
         .then((document) => {
           if (document) updateArticle(document);
-          console.log(document);
+          
+          console.table(document)
         })
         .catch((error) => console.log("Unable To Find Article! ", error));
     } else navigate("/");
@@ -39,6 +40,8 @@ const Article = () => {
       console.log("Unable To Delete Article! ", error);
     }
   };
+
+  console.table([userdata, isAuthor, documentId, article]);
 
   return (
     article && (
