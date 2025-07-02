@@ -80,8 +80,6 @@ const MetaForm = ({ article }) => {
     return () => subscription.unsubscribe();
   }, [watch, transformer, setValue]);
 
-  console.table([userdata, article]);
-
   return (
     <form onSubmit={handleSubmit(submit)}>
       <div>

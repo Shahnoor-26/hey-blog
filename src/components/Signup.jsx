@@ -22,7 +22,7 @@ const Signup = () => {
 
         if (userdata) {
           dispatch(loginStore(userdata));
-          navigate("/");
+          navigate(0);
         }
       }
     } catch (error) {

@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Container } from "../components";
 import { Service } from "../appwrite/configuration.js";
+import { useSelector } from "react-redux";
 
 const LIMIT = 5;
 
 const Home = () => {
   const [list, updateList] = useState([]);
   const [total, updateTotal] = useState(LIMIT);
+
+  const status = useSelector((state) => state.auth.status);
 
   useEffect(() => {
     Service.findDocuments()
@@ -22,22 +25,32 @@ const Home = () => {
 
   const results = list.slice(0, total);
 
-  return (
-    <Container>
-      <ul>
-        {results.map((value) => (
-          <li key={value.$id}>
-            <Card {...value} />
-          </li>
-        ))}
-        {total < list.length && (
-          <div>
-            <Button children={"Load More"} onClick={handleLoad} />
-          </div>
-        )}
-      </ul>
-    </Container>
-  );
+  if (status) {
+    return (
+      <Container>
+        <ul>
+          {results.map((value) => (
+            <li key={value.$id}>
+              <Card {...value} />
+            </li>
+          ))}
+          {total < list.length && (
+            <div>
+              <Button children={"Load More"} onClick={handleLoad} />
+            </div>
+          )}
+        </ul>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <div>
+          <h1>Login to read posts</h1>
+        </div>
+      </Container>
+    );
+  }
 };
 
 export default Home;

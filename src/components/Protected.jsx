@@ -7,8 +7,6 @@ const Protected = ({ children, authenticated = true }) => {
   const [spin, updateSpin] = useState(true);
   const status = useSelector((state) => state.auth.status);
 
-  console.table([status, authenticated]);
-
   useEffect(() => {
     if (!authenticated && authenticated !== status) navigate("/");
     else if (authenticated && authenticated !== status) navigate("/login");

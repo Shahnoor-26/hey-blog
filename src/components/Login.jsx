@@ -17,12 +17,12 @@ const Login = () => {
       updateError("");
       const session = await Auth.login(data);
 
-      if (session) {
+      if (session.current) {
         const userdata = await Auth.currentUser();
 
         if (userdata) {
           dispatch(loginStore(userdata));
-          navigate("/");
+          navigate(0);
         }
       }
     } catch (error) {
