@@ -1,39 +1,43 @@
 import { useEffect, useState } from "react";
+import { Button, Card, Container } from "../components";
 import { Service } from "../appwrite/configuration.js";
-import { Card, Container } from "../components";
+
+const LIMIT = 5;
 
 const Home = () => {
   const [list, updateList] = useState([]);
+  const [total, updateTotal] = useState(LIMIT);
 
   useEffect(() => {
     Service.findDocuments()
       .then((collection) => {
         if (collection) updateList(collection.documents);
       })
-      .catch((error) => console.log("Unable To Find Articles! ", error));
+      .catch((error) => console.log("Unable to find articles: ", error));
   }, []);
 
-  if (list && list.length > 0) {
-    return (
-      <Container>
-        <ul>
-          {list.map((item) => (
-            <li key={item.$id}>
-              <Card {...item} />
-            </li>
-          ))}
-        </ul>
-      </Container>
-    );
-  } else {
-    return (
-      <Container>
-        <div>
-          <h1>Login to read articles</h1>
-        </div>
-      </Container>
-    );
-  }
+  const handleLoad = () => {
+    updateTotal((prev) => Math.min(prev + LIMIT, list.length));
+  };
+
+  const results = list.slice(0, total);
+
+  return (
+    <Container>
+      <ul>
+        {results.map((value) => (
+          <li key={value.$id}>
+            <Card {...value} />
+          </li>
+        ))}
+        {total < list.length && (
+          <div>
+            <Button children={"Load More"} onClick={handleLoad} />
+          </div>
+        )}
+      </ul>
+    </Container>
+  );
 };
 
 export default Home;

@@ -20,8 +20,10 @@ const Signup = () => {
       if (session) {
         const userdata = await Auth.currentUser();
 
-        if (userdata) dispatch(loginStore(userdata));
-        navigate("/");
+        if (userdata) {
+          dispatch(loginStore(userdata));
+          navigate("/");
+        }
       }
     } catch (error) {
       updateError(error.message);

@@ -53,6 +53,7 @@ const EditorBox = ({
             onEditorChange={onChange}
           />
         )}
+        {...props}
       />
     </div>
   );

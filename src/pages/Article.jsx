@@ -18,8 +18,8 @@ const Article = () => {
       Service.findDocument(documentId.documentId)
         .then((document) => {
           if (document) updateArticle(document);
-          
-          console.table(document)
+
+          console.table(document);
         })
         .catch((error) => console.log("Unable To Find Article! ", error));
     } else navigate("/");
