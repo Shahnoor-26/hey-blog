@@ -16,7 +16,8 @@ import {
   Home,
 } from "./pages";
 
-import "./index.css";
+import "./css/index.css";
+import "./css/theme.css";
 
 const router = createBrowserRouter([
   {
