@@ -34,41 +34,43 @@ const Header = () => {
   ];
 
   return (
-    <header className="h-auto w-full">
-      <Container>
-        <nav className="h-auto w-full p-2.5 border-b border-[#D5D5D5]">
-          <div className="h-auto w-full flex justify-between items-center gap-2.5">
-            <Link to={"/"}>
-              <Logo />
-            </Link>
-            <ul className="h-auto w-fit flex justify-between items-center gap-2.5">
-              {links.map(
-                (link) =>
-                  link.active && (
-                    <li key={link.name}>
-                      <NavLink
-                        to={link.source}
-                        className={
-                          "h-auto w-full py-2.5 px-5 block border border-[#D5D5D5] rounded-md"
-                        }
-                      >
-                        {link.name}
-                      </NavLink>
-                    </li>
-                  )
-              )}
-              {status && (
-                <li>
-                  <Logout
-                    children={"Logout"}
-                    className="h-auto w-full py-2.5 px-5 block border border-[#D5D5D5] rounded-md cursor-pointer"
-                  />
-                </li>
-              )}
-            </ul>
-          </div>
-        </nav>
-      </Container>
+    <header className="sticky top-0 z-20 h-auto w-full font-semibold antialiased">
+      <nav className="h-auto w-full p-2 bg-primary text-text-primary border-b-2 border-border">
+        <div className="h-auto w-full px-4 py-2 flex justify-between items-center gap-2.5">
+          <Link to={"/"}>
+            <Logo className="text-3xl font-serif" /> {/* Logo Will Change */}
+          </Link>
+          <ul className="h-auto w-auto flex gap-2.5">
+            {links.map(
+              (link) =>
+                link.active && (
+                  <li key={link.name}>
+                    <NavLink
+                      to={link.source}
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-secondary ring-2 ring-accent-primary"
+                            : "bg-accent-secondary focus:ring-2 focus:ring-accent-primary"
+                        } block px-5 py-2.5 border-2 border-border rounded-xl`
+                      }
+                    >
+                      {link.name}
+                    </NavLink>
+                  </li>
+                )
+            )}
+            {status && (
+              <li>
+                <Logout
+                  children={"Logout"}
+                  className="block px-5 py-2.5 border-2 border-border rounded-xl bg-accent-secondary focus:ring-2 focus:ring-accent-primary"
+                />
+              </li>
+            )}
+          </ul>
+        </div>
+      </nav>
     </header>
   );
 };
