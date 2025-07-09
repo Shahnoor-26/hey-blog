@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-20 h-auto w-full font-semibold antialiased">
-      <nav className="h-auto w-full p-2 bg-primary text-text-primary border-b-2 border-border">
+      <nav className="h-auto w-full p-2 bg-secondary text-text-primary border-b-2 border-border">
         <div className="h-auto w-full px-4 py-2 flex justify-between items-center gap-2.5">
           <Link to={"/"}>
             <Logo className="text-3xl font-serif" /> {/* Logo Will Change */}
@@ -52,7 +52,7 @@ const Header = () => {
                           isActive
                             ? "bg-secondary ring-2 ring-accent-primary"
                             : "bg-accent-secondary focus:ring-2 focus:ring-accent-primary"
-                        } block px-5 py-2.5 border-2 border-border rounded-xl`
+                        } block px-5 py-2.5 border-2 border-border rounded-xl transition-all duration-200 ease-in-out`
                       }
                     >
                       {link.name}
@@ -64,7 +64,7 @@ const Header = () => {
               <li>
                 <Logout
                   children={"Logout"}
-                  className="block px-5 py-2.5 border-2 border-border rounded-xl bg-accent-secondary focus:ring-2 focus:ring-accent-primary"
+                  className="block px-5 py-2.5 border-2 border-border rounded-xl transition-all duration-200 ease-in-out bg-accent-secondary focus:ring-2 focus:ring-accent-primary"
                 />
               </li>
             )}

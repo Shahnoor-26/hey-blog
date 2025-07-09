@@ -3,8 +3,8 @@ import { Logo } from "../index.js";
 
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 h-60 w-full p-2 bg-secondary text-text-primary border-t-2 border-border antialiased select-none">
-      <div className="h-full w-full px-4 py-2 flex">
+    <footer className="w-full p-2 bg-secondary text-text-primary border-t-2 border-border antialiased select-none">
+      <div className="h-full w-full px-4 mb-20 flex">
         <section className="h-full w-1/2 mt-10">
           <Link className="block mb-2.5">
             <Logo className="text-2xl font-semibold font-serif" />
