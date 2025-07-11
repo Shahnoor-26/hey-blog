@@ -29,10 +29,10 @@ const Layout = () => {
     </>
   ) : (
     <>
-      <Header />
-      <main>
+      {/* <Header /> */}
+      {/* <main>
         <Outlet />
-      </main>
+      </main> */}
       <Footer />
     </>
   );
