@@ -14,12 +14,32 @@ const Footer = () => {
           </div>
           <ul className="flex max-md:flex-col gap-2.5">
             <li className="space-x-2.5">
-              <Link to={"#"}>Foot Link</Link>
-              <Link to={"#"}>Foot Link</Link>
+              <Link
+                to={"#"}
+                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+              >
+                Github
+              </Link>
+              <Link
+                to={"#"}
+                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+              >
+                Facebook
+              </Link>
             </li>
             <li className="space-x-2.5">
-              <Link to={"#"}>Foot Link</Link>
-              <Link to={"#"}>Foot Link</Link>
+              <Link
+                to={"#"}
+                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+              >
+                Discord
+              </Link>
+              <Link
+                to={"#"}
+                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+              >
+                Youtube
+              </Link>
             </li>
           </ul>
         </section>
