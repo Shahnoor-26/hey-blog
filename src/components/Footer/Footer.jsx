@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../index.js";
+import {
+  GithubIcon,
+  DiscordIcon,
+  XIcon,
+  TelegramIcon,
+  InstagramIcon,
+  YoutubeIcon,
+} from "../Icons.jsx";
 
 const Footer = () => {
   return (
@@ -12,33 +20,47 @@ const Footer = () => {
             </Link>
             <p>&copy; All Rights Reserved</p>
           </div>
-          <ul className="flex max-md:flex-col gap-2.5">
-            <li className="space-x-2.5">
-              <Link
-                to={"#"}
-                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
-              >
-                Github
+          <ul className="flex gap-2.5">
+            <li className="flex max-md:flex-col gap-2.5">
+              <Link to={"#"}>
+                <GithubIcon
+                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
+                  color="#ffffff"
+                />
               </Link>
-              <Link
-                to={"#"}
-                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
-              >
-                Facebook
+              <Link to={"#"}>
+                <DiscordIcon
+                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
+                  color="#ffffff"
+                />
               </Link>
             </li>
-            <li className="space-x-2.5">
-              <Link
-                to={"#"}
-                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
-              >
-                Discord
+            <li className="flex max-md:flex-col gap-2.5">
+              <Link to={"#"}>
+                <TelegramIcon
+                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
+                  color="#ffffff"
+                />
               </Link>
-              <Link
-                to={"#"}
-                className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
-              >
-                Youtube
+              <Link to={"#"}>
+                <XIcon
+                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
+                  color="#ffffff"
+                />
+              </Link>
+            </li>
+            <li className="flex max-md:flex-col gap-2.5">
+              <Link to={"#"}>
+                <InstagramIcon
+                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
+                  color="#ffffff"
+                />
+              </Link>
+              <Link to={"#"}>
+                <YoutubeIcon
+                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
+                  color="#ffffff"
+                />
               </Link>
             </li>
           </ul>
