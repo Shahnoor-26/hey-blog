@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="h-auto w-full mt-5 mb-10 flex max-md:flex-col items-center">
         <section className="h-auto w-full md:w-1/2 px-2 py-4 flex md:flex-col justify-between gap-2.5">
           <div className="flex flex-col gap-2.5">
-            <Link to={"/"}>
+            <Link to={"/"} tabIndex={-1}>
               <Logo className="text-xl font-serif" />
             </Link>
             <p>&copy; All Rights Reserved</p>
@@ -72,7 +72,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Features
                 </Link>
@@ -80,7 +80,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Pricing
                 </Link>
@@ -88,7 +88,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Affiliate Program
                 </Link>
@@ -101,7 +101,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Account
                 </Link>
@@ -109,7 +109,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Contact Us
                 </Link>
@@ -117,7 +117,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Help Desk
                 </Link>
@@ -130,7 +130,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Privacy Policy
                 </Link>
@@ -138,7 +138,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Licensing
                 </Link>
@@ -146,7 +146,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="hover:text-text-secondary hover:underline transition-all duration-200 ease-in-out"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
                 >
                   Terms & Conditions
                 </Link>

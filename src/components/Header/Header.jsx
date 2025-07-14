@@ -1,9 +1,31 @@
-import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { Container, Logo, Logout } from "../index.js";
+import { useDispatch, useSelector } from "react-redux";
+import { themeUpdate } from "../../store/themeSlice.js";
+import { Button, Logo } from "../index.js";
+import { MoonIcon, SunIcon } from "../Icons.jsx";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const status = useSelector((state) => state.auth.status);
+  const themeStatus = useSelector((state) => state.theme.themeStatus);
+
+  const switchStatus = () => {
+    try {
+      const html = document.querySelector("html");
+
+      if (themeStatus) {
+        html.setAttribute("data-status", "light");
+        localStorage.setItem("dark-status", "false");
+        dispatch(themeUpdate({ themeStatus: false }));
+      } else {
+        html.setAttribute("data-status", "dark");
+        localStorage.setItem("dark-status", "true");
+        dispatch(themeUpdate({ themeStatus: true }));
+      }
+    } catch (error) {
+      console.log("");
+    }
+  };
 
   const links = [
     {
@@ -34,13 +56,15 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-20 h-auto w-full font-semibold antialiased">
-      <nav className="h-auto w-full p-2 bg-secondary text-text-primary border-b-2 border-border">
-        <div className="h-auto w-full px-4 py-2 flex justify-between items-center gap-2.5">
-          <Link to={"/"}>
-            <Logo className="text-3xl font-serif" /> {/* Logo Will Change */}
+    <header className="sticky top-0 h-auto w-full font-semibold antialiased select-none">
+      <nav className="h-auto w-full p-2 bg-primary text-text-primary border-b-2 border-border flex justify-between items-center gap-2.5">
+        <section className="bg-black">
+          <Link to={"/"} tabIndex={-1}>
+            <Logo />
           </Link>
-          <ul className="h-auto w-auto flex gap-2.5">
+        </section>
+        <section className="h-auto w-auto flex items-center gap-2.5">
+          <ul className="h-auto w-auto hidden md:flex items-center gap-2.5">
             {links.map(
               (link) =>
                 link.active && (
@@ -49,10 +73,8 @@ const Header = () => {
                       to={link.source}
                       className={({ isActive }) =>
                         `${
-                          isActive
-                            ? "bg-secondary ring-2 ring-accent-primary"
-                            : "bg-accent-secondary focus:ring-2 focus:ring-accent-primary"
-                        } block px-5 py-2.5 border-2 border-border rounded-xl transition-all duration-200 ease-in-out`
+                          isActive && "ring-2 ring-secondary"
+                        } px-4 py-2 bg-secondary block border-2 border-border rounded-md transition-all duration-200 ease-in-out`
                       }
                     >
                       {link.name}
@@ -62,14 +84,23 @@ const Header = () => {
             )}
             {status && (
               <li>
-                <Logout
+                <Button
                   children={"Logout"}
-                  className="block px-5 py-2.5 border-2 border-border rounded-xl transition-all duration-200 ease-in-out bg-accent-secondary focus:ring-2 focus:ring-accent-primary"
+                  className="px-4 py-2 bg-secondary border-2 border-border rounded-md transition-all duration-200 ease-in-out focus:ring-2 focus:ring-secondary"
                 />
               </li>
             )}
           </ul>
-        </div>
+          <Button className="px-4 py-2 bg-secondary border-2 border-border rounded-md transition-all duration-200 ease-in-out focus:ring-2 focus:ring-secondary">
+            Menu
+          </Button>
+          <Button
+            className="px-4 py-2 bg-secondary border-2 border-border rounded-md transition-all duration-200 ease-in-out focus:ring-2 focus:ring-secondary"
+            onClick={switchStatus}
+          >
+            {themeStatus ? <MoonIcon /> : <SunIcon />}
+          </Button>
+        </section>
       </nav>
     </header>
   );

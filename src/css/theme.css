@@ -11,8 +11,8 @@
 }
 
 html.dark,
-[data-theme="dark"] {
-  --color-primary: #cba9ef;
+[data-status="dark"] {
+  --color-primary: #000000;
   --color-secondary: #a06ec4;
   --color-text-primary: #ffffff;
   --color-text-secondary: #2f0d68;
