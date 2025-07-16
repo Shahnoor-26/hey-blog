@@ -32,22 +32,25 @@ const Login = () => {
 
   return (
     <section className="h-screen w-full flex justify-center items-center font-semibold antialiased select-none">
-      <div className="h-3/5 md:h-3/4 xl:h-4/5 w-11/12 md:w-3/4 xl:w-3/5 p-2 flex justify-center items-center text-sm md:text-base xl:text-lg border md:border-2 rounded-md xl:rounded-xl">
-        <div className="h-auto w-full space-y-4">
-          <div className="h-auto w-full space-y-2 text-center truncate">
-            <Logo />
+      <div className="h-auto w-auto flex justify-center items-center text-base md:text-lg xl:text-xl border md:border-2 rounded md:rounded-md">
+        <div className="h-auto w-auto m-4 md:m-8 xl:m-12 space-y-4 md:space-y-8">
+          <div className="text-center truncate space-y-2 md:space-y-4">
+            <Logo /> {/* Logo will be added soon */}
             <h2 className="text-xl md:text-2xl xl:text-3xl truncate font-bold">
               Login Into Your Account
             </h2>
-            <p className="text-xs md:text-sm xl:text-base truncate">
+            <p className="text-sm md:text-base xl:text-lg truncate">
               <span>Don&apos;t have an account?&nbsp;</span>
               <Link to={"/signup"} className="hover:underline">
                 Create Account
               </Link>
             </p>
           </div>
-          <form onSubmit={handleSubmit(login)} className="space-y-4">
-            <div className="h-auto w-full px-2">
+          <form
+            onSubmit={handleSubmit(login)}
+            className="h-auto w-auto space-y-4 md:space-y-8"
+          >
+            <div>
               <Input
                 label="Email:"
                 type="email"
@@ -61,28 +64,28 @@ const Login = () => {
                       ) || "Email address must be a valid address",
                   },
                 })}
-                className="h-auto w-3/4 md:w-4/5 xl:w-[85%] px-2.5 py-1.5 border md:border-2 rounded md:rounded-md"
+                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none"
               />
             </div>
-            <div className="h-auto w-full px-2">
+            <div>
               <Input
                 label="Password:"
                 type="password"
                 placeholder="Enter your password"
                 {...register("password", { required: true })}
-                className="h-auto w-3/4 md:w-4/5 xl:w-[85%] px-2.5 py-1.5 border md:border-2 rounded md:rounded-md"
+                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none"
               />
             </div>
-            <div className="h-auto w-full px-2 flex justify-center gap-4">
+            <div className="h-auto w-full flex justify-between items-center space-x-2 md:space-x-4">
               <Button
                 type="submit"
                 children={"Login"}
-                className="px-6 md:px-8 xl:px-10 py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out focus:ring-1 md:focus:ring-2"
+                className="h-auto w-1/2 p-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer focus:ring-1 md:focus:ring-2"
               />
               <Button
                 type="reset"
                 children={"Reset"}
-                className="px-6 md:px-8 xl:px-10 py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out focus:ring-1 md:focus:ring-2"
+                className="h-auto w-1/2 p-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer focus:ring-1 md:focus:ring-2"
               />
             </div>
           </form>

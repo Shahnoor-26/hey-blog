@@ -5,9 +5,9 @@ const Input = forwardRef(
     const inputId = useId();
 
     return (
-      <div className="h-auto w-full flex justify-between items-center gap-2.5">
+      <div className="h-auto w-full flex max-sm:flex-col justify-between items-center max-sm:items-baseline gap-2">
         {label && (
-          <label htmlFor={inputId} className="truncate">
+          <label htmlFor={inputId} className="min-h-fit min-w-fit truncate">
             {label}
           </label>
         )}
