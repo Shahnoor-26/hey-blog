@@ -44,41 +44,36 @@ const Home = () => {
     );
   } else {
     return (
-      <Container className={"bg-primary font-semibold antialiased select-none"}>
-        <section className="h-80 flex flex-col justify-center items-center border-b-2 border-border">
-          <div className="text-text-secondary text-center truncate">
-            <h2 className="p-2 text-4xl truncate font-bold">
+      <Container
+        className={"h-auto w-full font-semibold antialiased select-none"}
+      >
+        <section className="min-h-80 w-full px-4 py-8 flex flex-col justify-center items-center gap-4 border-b md:border-b-2">
+          <div className="space-y-2 text-base md:text-lg xl:text-xl text-center text-wrap">
+            <h2 className="text-xl md:text-2xl xl:text-3xl font-bold">
               Welcome to HeyBlog
             </h2>
-            <p className="p-2 text-xl truncate opacity-75">
-              Your Space to Learn, Share, and Grow
-            </p>
+            <p>Your Space to Learn, Share, and Grow</p>
           </div>
-          <div className="p-2 space-x-5 text-text-primary">
-            <button
-              type="button"
-              className="px-5 py-2.5 bg-secondary border-2 border-border rounded-lg focus:ring-2 focus:ring-accent-primary"
-            >
-              Discover Blogs
-            </button>
-            <button
-              type="button"
-              className="px-5 py-2.5 bg-secondary border-2 border-border rounded-lg focus:ring-2 focus:ring-accent-primary"
-            >
-              Create An Account
-            </button>
+          <div className="space-x-2.5">
+            <Button className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md cursor-pointer focus:ring-1 md:focus:ring-2">
+              Discover More
+            </Button>
+            <Button className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md cursor-pointer focus:ring-1 md:focus:ring-2">
+              Create Account
+            </Button>
           </div>
         </section>
-
-        <section className="h-80 flex flex-col justify-center items-center border-b-2 border-border text-text-secondary text-center truncate">
-          <h2 className="p-2 text-4xl truncate font-bold">Our Mission</h2>
-          <p className="w-3/4 p-2 text-lg text-wrap opacity-75">
+        <section className="min-h-80 w-full px-4 py-8 flex flex-col justify-center items-center gap-4 text-base md:text-lg xl:text-xl text-center text-wrap">
+          <h2 className="text-xl md:text-2xl xl:text-3xl font-bold">
+            Our Mission
+          </h2>
+          <p className="h-auto w-full md:w-3/4">
             HeyBlog is a simple and user-friendly platform designed for
             students, educators, and lifelong learners to write and read
             educational articles. Whether you're sharing knowledge or exploring
             new topics, HeyBlog makes learning more accessible for everyone.
           </p>
-          <p className="w-3/4 p-2 text-lg text-wrap opacity-75">
+          <p className="h-auto w-full md:w-3/4">
             Our mission is to encourage open learning and self-expression
             through writing. Start your blog today, connect with curious minds,
             and contribute to a growing library of knowledge.
