@@ -56,7 +56,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Enter your email"
                 {...register("name", { required: true })}
-                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none"
+                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none focus:ring-1 md:focus:ring-2"
               />
             </div>
             <div>
@@ -73,7 +73,7 @@ const Signup = () => {
                       ) || "Email address must be a valid address",
                   },
                 })}
-                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none"
+                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none focus:ring-1 md:focus:ring-2"
               />
             </div>
             <div>
@@ -82,7 +82,7 @@ const Signup = () => {
                 type="password"
                 placeholder="Enter your password"
                 {...register("password", { required: true })}
-                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none"
+                className="h-auto w-full px-2 xl:px-4 py-1 xl:py-2 border md:border-2 rounded md:rounded-md outline-none focus:ring-1 md:focus:ring-2"
               />
             </div>
             <div className="h-auto w-full flex justify-between items-center space-x-2 md:space-x-4">
