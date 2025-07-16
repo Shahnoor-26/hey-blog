@@ -31,9 +31,9 @@ const Login = () => {
   };
 
   return (
-    <section className="h-screen w-full flex flex-col justify-center items-center gap-2.5 font-semibold antialiased select-none">
+    <section className="h-screen w-full mt-10 mb-10 flex flex-col justify-center items-center gap-2.5 font-semibold antialiased select-none">
       <div className="h-auto w-auto flex justify-center items-center text-base md:text-lg xl:text-xl border md:border-2 rounded md:rounded-md">
-        <div className="h-auto w-auto m-8 md:m-12 xl:m-24 space-y-4 md:space-y-8">
+        <div className="h-auto w-auto m-4 md:m-8 xl:m-12 space-y-4 md:space-y-8">
           <div className="text-center truncate space-y-2 md:space-y-4">
             <Logo /> {/* Logo will be added soon */}
             <h2 className="text-xl md:text-2xl xl:text-3xl truncate font-bold">
