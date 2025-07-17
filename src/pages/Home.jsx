@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Service } from "../appwrite/configuration.js";
 import { Button, Card, Container } from "../components";
 
-const LIMIT = 5;
+const LIMIT = 8;
 
 const Home = () => {
   const [list, updateList] = useState([]);
@@ -28,19 +28,31 @@ const Home = () => {
 
   if (status) {
     return (
-      <Container>
-        <ul>
-          {results.map((value) => (
-            <li key={value.$id}>
-              <Card {...value} />
-            </li>
-          ))}
+      <Container
+        className={"min-h-screen w-full font-semibold antialiased select-none"}
+      >
+        <section className="h-full w-full p-2 flex justify-center text-xs md:text-sm xl:text-base">
+          <ul className="h-auto w-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-8">
+            {results?.map((data) => (
+              <li
+                key={data.$id}
+                className="h-auto w-auto m-2 p-2 border md:border-2"
+              >
+                <Card {...data} />
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section className="h-auto w-full px-2 py-4 flex justify-center text-base md:text-lg xl:text-xl">
           {total < list.length && (
-            <div>
-              <Button children={"Load More"} onClick={handleLoad} />
-            </div>
+            <Button
+              className="h-auto w-4/5 md:w-2/5 xl:w-1/4 p-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer"
+              onClick={handleLoad}
+            >
+              Discover More
+            </Button>
           )}
-        </ul>
+        </section>
       </Container>
     );
   } else {
