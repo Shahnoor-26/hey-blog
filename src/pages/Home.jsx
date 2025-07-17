@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Container } from "../components";
-import { Service } from "../appwrite/configuration.js";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Service } from "../appwrite/configuration.js";
+import { Button, Card, Container } from "../components";
 
 const LIMIT = 5;
 
@@ -54,13 +55,19 @@ const Home = () => {
             </h2>
             <p>Your Space to Learn, Share, and Grow</p>
           </div>
-          <div className="space-x-2.5">
-            <Button className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md cursor-pointer focus:ring-1 md:focus:ring-2">
+          <div className="flex justify-between items-center gap-2.5">
+            <Link
+              to={"/login"}
+              className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md cursor-pointer focus:ring-1 md:focus:ring-2"
+            >
               Discover More
-            </Button>
-            <Button className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md cursor-pointer focus:ring-1 md:focus:ring-2">
+            </Link>
+            <Link
+              to={"/signup"}
+              className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md cursor-pointer focus:ring-1 md:focus:ring-2"
+            >
               Create Account
-            </Button>
+            </Link>
           </div>
         </section>
         <section className="min-h-80 w-full px-4 py-8 flex flex-col justify-center items-center gap-4 text-base md:text-lg xl:text-xl text-center text-wrap">

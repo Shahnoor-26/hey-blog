@@ -1,78 +1,65 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../index.js";
 import {
-  GithubIcon,
   DiscordIcon,
-  XIcon,
-  TelegramIcon,
+  GithubIcon,
   InstagramIcon,
+  TelegramIcon,
+  XIcon,
   YoutubeIcon,
 } from "../Icons.jsx";
 
 const Footer = () => {
   return (
-    <footer className="h-auto w-full p-2 bg-primary text-text-primary text-xs md:text-sm xl:text-base border-t md:border-t-2 border-border antialiased select-none">
-      <div className="h-auto w-full mt-5 mb-10 flex max-md:flex-col items-center">
+    <footer className="h-auto w-full px-2 py-4 border-t md:border-t-2 text-xs md:text-sm xl:text-base font-semibold antialiased select-none">
+      <div className="h-auto w-full mt-8 mb-12 flex max-md:flex-col justify-between items-center">
         <section className="h-auto w-full md:w-1/2 px-2 py-4 flex md:flex-col justify-between gap-2.5">
-          <div className="flex flex-col gap-2.5">
-            <Link to={"/"} tabIndex={-1}>
-              <Logo className="text-xl font-serif" />
+          <div className="space-y-2">
+            <Link to={"/"} tabIndex={-1} className="block">
+              <Logo className="text-xl md:text-2xl xl:text-3xl" />
+              {/* Logo will be added soon */}
             </Link>
-            <p>&copy; All Rights Reserved</p>
+            <p className="text-sm md:text-base xl:text-lg text-wrap">
+              &copy; All Rights Reserved
+            </p>
           </div>
-          <ul className="flex gap-2.5">
+          <ul className="flex gap-2">
             <li className="flex max-md:flex-col gap-2.5">
               <Link to={"#"}>
-                <GithubIcon
-                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
-                  color="#ffffff"
-                />
+                <GithubIcon className="h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-black" />
               </Link>
               <Link to={"#"}>
-                <DiscordIcon
-                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
-                  color="#ffffff"
-                />
+                <DiscordIcon className="h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-black" />
               </Link>
             </li>
             <li className="flex max-md:flex-col gap-2.5">
               <Link to={"#"}>
-                <TelegramIcon
-                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
-                  color="#ffffff"
-                />
+                <TelegramIcon className="h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-black" />
               </Link>
               <Link to={"#"}>
-                <XIcon
-                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
-                  color="#ffffff"
-                />
+                <XIcon className="h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-black" />
               </Link>
             </li>
             <li className="flex max-md:flex-col gap-2.5">
               <Link to={"#"}>
-                <InstagramIcon
-                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
-                  color="#ffffff"
-                />
+                <InstagramIcon className="h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-black" />
               </Link>
               <Link to={"#"}>
-                <YoutubeIcon
-                  className="h-5 w-5 md:h-6 md:w-6 xl:h-7 xl:w-7 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-secondary"
-                  color="#ffffff"
-                />
+                <YoutubeIcon className="h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-black" />
               </Link>
             </li>
           </ul>
         </section>
-        <section className="h-full w-full md:w-1/2 px-2 py-4 flex justify-between sm:justify-evenly items-center gap-2.5 max-md:border-t max-md:border-border">
+        <section className="h-auto w-full md:w-1/2 px-2 py-4 flex justify-between sm:justify-evenly items-center gap-2.5 max-md:border-t">
           <div className="space-y-2.5">
-            <h3 className="font-semibold">Company</h3>
+            <h3 className="text-sm md:text-base xl:text-lg truncate">
+              Company
+            </h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Features
                 </Link>
@@ -80,7 +67,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Pricing
                 </Link>
@@ -88,7 +75,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Affiliate Program
                 </Link>
@@ -96,12 +83,14 @@ const Footer = () => {
             </ul>
           </div>
           <div className="space-y-2.5">
-            <h3 className="font-semibold">Support</h3>
+            <h3 className="text-sm md:text-base xl:text-lg truncate">
+              Support
+            </h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Account
                 </Link>
@@ -109,7 +98,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Contact Us
                 </Link>
@@ -117,7 +106,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Help Desk
                 </Link>
@@ -125,12 +114,14 @@ const Footer = () => {
             </ul>
           </div>
           <div className="space-y-2.5">
-            <h3 className="font-semibold">Legal & Rights</h3>
+            <h3 className="text-sm md:text-base xl:text-lg truncate">
+              Legal & Rights
+            </h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Privacy Policy
                 </Link>
@@ -138,7 +129,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Licensing
                 </Link>
@@ -146,7 +137,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"#"}
-                  className="transition-all duration-200 ease-in-out hover:underline hover:text-text-secondary hover:opacity-80"
+                  className="transition-all duration-200 ease-in-out hover:underline hover:opacity-80"
                 >
                   Terms & Conditions
                 </Link>
