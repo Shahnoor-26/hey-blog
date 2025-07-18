@@ -100,14 +100,14 @@ const Header = () => {
               <li>
                 <Logout
                   children={"Logout"}
-                  className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out focus:ring-1 md:focus:ring-2"
+                  className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer focus:ring-1 md:focus:ring-2"
                 />
               </li>
             )}
           </ul>
           <div className="h-auto w-auto flex items-center gap-2.5">
             <Button
-              className="md:hidden px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out focus:ring-1 md:focus:ring-2"
+              className="md:hidden px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer focus:ring-1 md:focus:ring-2"
               onClick={hamburger}
             >
               <MenuIcon
@@ -116,7 +116,7 @@ const Header = () => {
               />
             </Button>
             <Button
-              className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out focus:ring-1 md:focus:ring-2"
+              className="px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer focus:ring-1 md:focus:ring-2"
               onClick={switchStatus}
             >
               {themeStatus ? (

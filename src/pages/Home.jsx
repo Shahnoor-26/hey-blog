@@ -36,23 +36,23 @@ const Home = () => {
             {results?.map((data) => (
               <li
                 key={data.$id}
-                className="h-auto w-auto m-2 p-2 border md:border-2"
+                className="h-auto w-auto m-2 p-2 border md:border-2 transition-all duration-200 ease-in-out hover:scale-105 focus:ring-1 md:focus:ring-2"
               >
                 <Card {...data} />
               </li>
             ))}
           </ul>
         </section>
-        <section className="h-auto w-full px-2 py-4 flex justify-center text-base md:text-lg xl:text-xl">
-          {total < list.length && (
+        {total < list.length && (
+          <section className="h-auto w-full px-2 py-4 flex justify-center border-t md:border-t-2 text-base md:text-lg xl:text-xl">
             <Button
-              className="h-auto w-4/5 md:w-2/5 xl:w-1/4 p-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer"
+              className="h-auto w-4/5 md:w-2/5 xl:w-1/4 p-2 border md:border-2 rounded md:rounded-md transition-all duration-200 ease-in-out cursor-pointer hover:scale-105 focus:ring-1 md:focus:ring-2"
               onClick={handleLoad}
             >
               Discover More
             </Button>
-          )}
-        </section>
+          </section>
+        )}
       </Container>
     );
   } else {

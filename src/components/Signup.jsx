@@ -41,7 +41,7 @@ const Signup = () => {
             </h2>
             <p className="text-sm md:text-base xl:text-lg truncate">
               <span>Already have an account?&nbsp;</span>
-              <Link to={"/signup"} className="hover:underline">
+              <Link to={"/login"} className="hover:underline">
                 Login
               </Link>
             </p>

@@ -9,13 +9,18 @@ const Card = ({ $id, title, picture, content }) => {
   return (
     <Link to={`/article/${$id}`} className="h-auto w-auto">
       <div className="h-44 md:h-48 xl:h-52 w-full">
-        <img src={source} alt={title} className="h-full w-full object-cover" />
+        <img
+          src={source}
+          alt={title}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
       </div>
       <div>
-        <h3 className="text-base md:text-lg xl:text-xl text-center truncate">
+        <h3 className="px-2 py-1 text-base md:text-lg xl:text-xl text-center truncate">
           {title}
         </h3>
-        <div className="truncate opacity-80">{plaintext}</div>
+        <div className="px-2 truncate opacity-80">{plaintext}</div>
       </div>
     </Link>
   );
