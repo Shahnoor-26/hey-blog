@@ -10,7 +10,7 @@ const EditorBox = ({
   ...props
 }) => {
   return (
-    <div>
+    <div className="h-full w-full flex flex-col gap-2">
       {label && <label>{label}</label>}
       <Controller
         name={name}
@@ -21,7 +21,6 @@ const EditorBox = ({
             initialValue={initialValue}
             init={{
               initialValue: initialValue,
-              height: 500,
               menubar: true,
               plugins: [
                 "image",

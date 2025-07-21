@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form";
-import { Service } from "../../appwrite/configuration.js";
-import { Button, EditorBox, Input, Select } from "../index.js";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useCallback, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { Service } from "../../appwrite/configuration.js";
+import { Button, Container, EditorBox, Input, Select } from "../index.js";
 
 const MetaForm = ({ article }) => {
   const { register, handleSubmit, watch, setValue, getValues, control } =
@@ -81,71 +81,78 @@ const MetaForm = ({ article }) => {
   }, [watch, transformer, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <div>
-        <div>
-          <Input
-            label="Title: "
-            placeholder="Enter article's title"
-            className=""
-            {...register("title", { required: true })}
-          />
-        </div>
-        <div>
-          <Input
-            label="Endpoint: "
-            placeholder="Enter article's endpoint"
-            className=""
-            {...register("documentId", { required: true })}
-            onInput={(event) => {
-              setValue("documentId", transformer(event.currentTarget.value), {
-                shouldValidate: true,
-              });
-            }}
-          />
-        </div>
-        <div>
-          <EditorBox
-            label="Content: "
-            name="content"
-            initialValue={getValues("content")}
-            control={control}
-          />
-        </div>
-      </div>
-      <div>
-        <div>
-          <Input
-            label="Featured Image"
-            type="file"
-            accept="image/png, image/jpg, image/jpeg, image/gif"
-            {...register("picture", { required: !article })}
-          />
-        </div>
-        {article && (
-          <div>
-            <img
-              src={article.picture ? Service.fileView(article.picture) : null}
-              width={100}
-              alt={article.title}
+    <Container className={"font-semibold antialiased select-none"}>
+      <form
+        onSubmit={handleSubmit(submit)}
+        className="h-screen min-h-fit w-full p-2 md:flex text-base md:text-lg xl:text-xl"
+      >
+        <section className="h-auto w-full md:w-1/2 md:p-2 md:border-r-2">
+          <div className="h-auto w-full p-2">
+            <Input
+              label="Title: "
+              placeholder="Enter article's title"
+              {...register("title", { required: true })}
+              className="h-auto w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
             />
           </div>
-        )}
-
-        <div>
-          <Select
-            label="Status: "
-            options={["active", "inactive"]}
-            {...register("status", { required: true })}
-          />
-        </div>
-
-        <Button
-          type="submit"
-          children={article ? "Update Article" : "Create Article"}
-        />
-      </div>
-    </form>
+          <div className="h-auto w-full p-2">
+            <Input
+              label="Endpoint: "
+              placeholder="Enter article's endpoint"
+              {...register("documentId", { required: true })}
+              onInput={(event) => {
+                setValue("documentId", transformer(event.currentTarget.value), {
+                  shouldValidate: true,
+                });
+              }}
+              className="h-auto w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
+            />
+          </div>
+          <div className="h-auto w-full px-2 max-md:p-2">
+            <EditorBox
+              label="Content: "
+              name="content"
+              initialValue={getValues("content")}
+              control={control}
+            />
+          </div>
+        </section>
+        <section className="h-auto w-full md:w-1/2 md:p-2">
+          <div className="h-auto w-full p-2">
+            <Input
+              label="Featured Image: "
+              type="file"
+              accept="image/png, image/jpg, image/jpeg, image/gif"
+              {...register("picture", { required: !article })}
+              className="h-auto w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
+            />
+          </div>
+          {article && (
+            <div className="h-2/5 md:h-1/2 xl:h-3/5 w-full p-2">
+              <img
+                src={Service.fileView(article.picture) || null}
+                alt={article.title || "Not Available"}
+                className="h-full w-full border md:border-2 rounded object-cover"
+              />
+            </div>
+          )}
+          <div className="h-auto w-full p-2 flex justify-between items-center">
+            <div className="h-auto w-auto px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded">
+              <Select
+                label="Status: "
+                options={["active", "inactive"]}
+                {...register("status", { required: true })}
+              />
+            </div>
+            <Button
+              type="submit"
+              children={article ? "Update Article" : "Create Article"}
+              className="max-h-fit max-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
+            />
+          </div>
+        </section>
+      </form>
+    </Container>
   );
 };
 
