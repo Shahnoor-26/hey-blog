@@ -1,16 +1,17 @@
-import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
+import { Editor } from "@tinymce/tinymce-react";
 import { env } from "../../env/env.js";
 
 const EditorBox = ({
   name = "",
   label = "",
+  className = "",
   initialValue = "",
   control,
   ...props
 }) => {
   return (
-    <div className="h-full w-full flex flex-col gap-2">
+    <div className={`h-full w-full ${className}`}>
       {label && <label>{label}</label>}
       <Controller
         name={name}
@@ -19,11 +20,10 @@ const EditorBox = ({
           <Editor
             apiKey={env.tiny_editor_api_key}
             initialValue={initialValue}
+            onEditorChange={onChange}
             init={{
-              initialValue: initialValue,
               menubar: true,
               plugins: [
-                "image",
                 "advlist",
                 "autolink",
                 "lists",
@@ -39,17 +39,17 @@ const EditorBox = ({
                 "insertdatetime",
                 "media",
                 "table",
-                "code",
-                "help",
                 "wordcount",
-                "anchor",
               ],
               toolbar:
-                "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
+                "undo redo | blocks | bold italic underline strikethrough | forecolor backcolor |  alignleft aligncenter alignright alignjustify |  bullist numlist outdent indent | link image media table |  code preview fullscreen | removeformat",
               content_style:
-                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px; line-height:1.6; padding: 1rem; }",
+              image_caption: true,
+              image_title: true,
+              automatic_uploads: true,
+              file_picker_types: "image media",
             }}
-            onEditorChange={onChange}
           />
         )}
         {...props}

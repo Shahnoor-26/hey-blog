@@ -11,19 +11,19 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="h-auto w-full px-2 py-4 border-t md:border-t-2 text-xs md:text-sm xl:text-base font-semibold antialiased select-none">
-      <div className="h-auto w-full mt-8 mb-12 flex max-md:flex-col justify-between items-center">
-        <section className="h-auto w-full md:w-1/2 px-2 py-4 flex md:flex-col justify-between gap-2.5">
+    <footer className="w-full px-2 py-4 border-t md:border-t-2 font-semibold antialiased select-none">
+      <div className="h-full w-full mt-5 mb-10 flex max-md:flex-col justify-between items-center text-xs md:text-sm xl:text-base text-wrap">
+        <section className="w-full md:w-1/2 px-2 py-4 flex md:flex-col justify-between gap-2.5">
           <div className="space-y-2">
             <Link to={"/"} tabIndex={-1} className="block">
               <Logo className="text-xl md:text-2xl xl:text-3xl" />
-              {/* Logo will be added soon */}
+              {/* Insert Logo */}
             </Link>
-            <p className="text-sm md:text-base xl:text-lg text-wrap">
+            <p className="text-sm md:text-base xl:text-lg">
               &copy; All Rights Reserved
             </p>
           </div>
-          <ul className="flex gap-2">
+          <ul className="flex gap-2.5">
             <li className="flex max-md:flex-col gap-2.5">
               <Link to={"#"}>
                 <GithubIcon className="h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 transition-all duration-200 ease-in-out hover:opacity-80 hover:fill-black" />
@@ -52,9 +52,7 @@ const Footer = () => {
         </section>
         <section className="h-auto w-full md:w-1/2 px-2 py-4 flex justify-between sm:justify-evenly items-center gap-2.5 max-md:border-t">
           <div className="space-y-2.5">
-            <h3 className="text-sm md:text-base xl:text-lg truncate">
-              Company
-            </h3>
+            <h3 className="text-sm md:text-base xl:text-lg">Company</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
@@ -83,9 +81,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="space-y-2.5">
-            <h3 className="text-sm md:text-base xl:text-lg truncate">
-              Support
-            </h3>
+            <h3 className="text-sm md:text-base xl:text-lg">Support</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
@@ -114,9 +110,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="space-y-2.5">
-            <h3 className="text-sm md:text-base xl:text-lg truncate">
-              Legal & Rights
-            </h3>
+            <h3 className="text-sm md:text-base xl:text-lg">Legal & Rights</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link

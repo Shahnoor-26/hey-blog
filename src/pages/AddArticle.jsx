@@ -1,11 +1,7 @@
-import { Container, MetaForm } from "../components";
+import { MetaForm } from "../components/index.js";
 
 const AddArticle = () => {
-  return (
-    <Container>
-      <MetaForm />
-    </Container>
-  );
+  return <MetaForm />;
 };
 
 export default AddArticle;

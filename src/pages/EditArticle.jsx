@@ -1,12 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { Container, MetaForm } from "../components";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Service } from "../appwrite/configuration.js";
+import { MetaForm } from "../components";
 
 const EditArticle = () => {
   const [article, updateArticle] = useState(null);
-  const documentId = useParams();
   const navigate = useNavigate();
+  const documentId = useParams();
 
   useEffect(() => {
     if (documentId) {
@@ -18,13 +18,7 @@ const EditArticle = () => {
     } else navigate("/");
   }, [documentId.documentId, navigate]);
 
-  return (
-    article && (
-      <Container>
-        <MetaForm article={article} />
-      </Container>
-    )
-  );
+  return article && <MetaForm article={article} />;
 };
 
 export default EditArticle;

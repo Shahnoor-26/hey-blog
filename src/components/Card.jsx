@@ -7,7 +7,11 @@ const Card = ({ $id, title, picture, content }) => {
   const plaintext = content ? converter(content) : "No Data Found!";
 
   return (
-    <Link to={`/article/${$id}`} className="h-auto w-auto">
+    <Link
+      to={`/article/${$id}`}
+      className="h-full w-full block p-2 truncate outline-none"
+      tabIndex={-1}
+    >
       <div className="h-44 md:h-48 xl:h-52 w-full">
         <img
           src={source}

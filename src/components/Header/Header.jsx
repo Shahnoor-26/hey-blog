@@ -110,25 +110,16 @@ const Header = () => {
               className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 md:hidden border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
               onClick={hamburger}
             >
-              <MenuIcon
-                className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
-                stroke="2"
-              />
+              <MenuIcon className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7" />
             </Button>
             <Button
               className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
               onClick={switchStatus}
             >
               {themeStatus ? (
-                <MoonIcon
-                  className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
-                  stroke="2"
-                />
+                <MoonIcon className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7" />
               ) : (
-                <SunIcon
-                  className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
-                  stroke="2"
-                />
+                <SunIcon className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7" />
               )}
             </Button>
           </div>
@@ -145,7 +136,7 @@ const Header = () => {
               >
                 <Logout
                   children={"Logout"}
-                  className="block h-full w-full p-2"
+                  className="block h-full w-full p-2 outline-none"
                 />
               </li>
             )}
@@ -157,15 +148,21 @@ const Header = () => {
                     className="h-auto w-4/5 sm:w-3/5 border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-2"
                     onClick={hamburger}
                   >
-                    <Link to={link.source} className="block h-full w-full p-2">
+                    <Link
+                      to={link.source}
+                      className="block h-full w-full p-2 outline-none"
+                    >
                       {link.name}
                     </Link>
                   </li>
                 )
             )}
             <li className="h-auto w-4/5 sm:w-3/5 border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-2">
-              <Button className="h-7 w-7 m-2" onClick={hamburger}>
-                <CrossIcon className="h-full w-full" />
+              <Button
+                className="block h-full w-full p-2 outline-none"
+                onClick={hamburger}
+              >
+                <CrossIcon className="h-7 w-7 mx-auto" />
               </Button>
             </li>
           </ul>

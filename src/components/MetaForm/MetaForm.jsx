@@ -12,7 +12,7 @@ const MetaForm = ({ article }) => {
         documentId: article ? article.documentId : "",
         title: article ? article.title : "",
         content: article ? article.content : "",
-        status: article ? article.status : "active",
+        status: article ? article.status : "public",
       },
     });
 
@@ -86,16 +86,16 @@ const MetaForm = ({ article }) => {
         onSubmit={handleSubmit(submit)}
         className="h-screen min-h-fit w-full p-2 md:flex text-base md:text-lg xl:text-xl"
       >
-        <section className="h-auto w-full md:w-1/2 md:p-2 md:border-r-2">
-          <div className="h-auto w-full p-2">
+        <section className="w-full md:w-1/2 md:p-2 md:border-r-2">
+          <div className="w-full p-2">
             <Input
               label="Title: "
               placeholder="Enter article's title"
               {...register("title", { required: true })}
-              className="h-auto w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
+              className="w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
             />
           </div>
-          <div className="h-auto w-full p-2">
+          <div className="w-full p-2">
             <Input
               label="Endpoint: "
               placeholder="Enter article's endpoint"
@@ -105,26 +105,27 @@ const MetaForm = ({ article }) => {
                   shouldValidate: true,
                 });
               }}
-              className="h-auto w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
+              className="w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
             />
           </div>
-          <div className="h-auto w-full px-2 max-md:p-2">
+          <div className="w-full px-2 max-md:p-2">
             <EditorBox
               label="Content: "
               name="content"
               initialValue={getValues("content")}
               control={control}
+              className="flex flex-col gap-2.5"
             />
           </div>
         </section>
-        <section className="h-auto w-full md:w-1/2 md:p-2">
-          <div className="h-auto w-full p-2">
+        <section className="w-full md:w-1/2 md:p-2">
+          <div className="w-full p-2">
             <Input
               label="Featured Image: "
               type="file"
               accept="image/png, image/jpg, image/jpeg, image/gif"
               {...register("picture", { required: !article })}
-              className="h-auto w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
+              className="w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
             />
           </div>
           {article && (
@@ -136,18 +137,19 @@ const MetaForm = ({ article }) => {
               />
             </div>
           )}
-          <div className="h-auto w-full p-2 flex justify-between items-center">
-            <div className="h-auto w-auto px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded">
+          <div className="w-full p-2 flex justify-between items-center">
+            <div className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2">
               <Select
                 label="Status: "
-                options={["active", "inactive"]}
+                options={["Public", "Private"]}
                 {...register("status", { required: true })}
+                className="rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
               />
             </div>
             <Button
               type="submit"
               children={article ? "Update Article" : "Create Article"}
-              className="max-h-fit max-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
+              className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
             />
           </div>
         </section>
