@@ -1,11 +1,7 @@
-import { Login as Component, Container } from "../components";
+import { Login as Component, Container } from "../components/index.js";
 
 const Login = () => {
-  return (
-    <Container>
-      <Component />
-    </Container>
-  );
+  return <Container children={<Component />} />;
 };
 
 export default Login;

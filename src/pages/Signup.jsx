@@ -1,11 +1,7 @@
-import { Signup as Component, Container } from "../components";
+import { Signup as Component, Container } from "../components/index.js";
 
 const Signup = () => {
-  return (
-    <Container>
-      <Component />
-    </Container>
-  );
+  return <Container children={<Component />} />;
 };
 
 export default Signup;
