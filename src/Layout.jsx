@@ -5,6 +5,7 @@ import { Footer, Header } from "./components";
 import { Auth } from "./appwrite/authentication.js";
 import { themeUpdate } from "./store/themeSlice.js";
 import { login, logout } from "./store/authSlice.js";
+import Spin from "./components/Spin.jsx";
 
 const Layout = () => {
   const [spin, updateSpin] = useState(true);
@@ -25,18 +26,11 @@ const Layout = () => {
     document.querySelector("html").setAttribute("data-status", choice);
   }, []);
 
-  return spin ? (
+  return (
     <>
       <Header />
       <main>
-        <div>Loading</div>
-      </main>
-      <Footer />
-    </>
-  ) : (
-    <>
-      <Header />
-      <main>
+        {spin && <Spin />}
         <Outlet />
       </main>
       <Footer />

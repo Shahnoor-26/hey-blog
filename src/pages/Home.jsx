@@ -58,11 +58,11 @@ const Home = () => {
   } else {
     return (
       <Container className={"font-semibold antialiased select-none"}>
-        <section className="min-h-80 w-full mt-5 mb-5 p-2 flex flex-col justify-center items-center border-b md:border-b-2 text-base md:text-lg xl:text-xl text-wrap">
+        <section className="min-h-[500px] w-full p-2 flex flex-col justify-center items-center border-b md:border-b-2 text-base md:text-lg xl:text-xl">
           <h2 className="text-xl md:text-2xl xl:text-3xl font-bold">
             Welcome To HeyBlog
           </h2>
-          <p className="m-2">Your Space to Learn, Share, and Grow</p>
+          <p className="m-2 md:m-4">Your Space to Learn, Share, and Grow</p>
           <div className="flex justify-center items-center gap-2.5">
             <Link
               to={"/login"}
@@ -78,7 +78,7 @@ const Home = () => {
             </Link>
           </div>
         </section>
-        <section className="min-h-80 w-full mt-5 mb-5 p-2 flex flex-col justify-center items-center gap-2.5 text-base md:text-lg xl:text-xl text-center text-wrap">
+        <section className="min-h-[500px] w-full p-2 space-y-4 flex flex-col justify-center items-center text-base md:text-lg xl:text-xl text-center">
           <h2 className="text-xl md:text-2xl xl:text-3xl font-bold">
             Our Mission
           </h2>
