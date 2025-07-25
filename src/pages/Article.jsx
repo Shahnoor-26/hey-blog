@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Service } from "../appwrite/configuration.js";
+import { capitalize } from "../components/utilities.js";
 import { Button, Container } from "../components";
 import parser from "html-react-parser";
 
@@ -49,9 +50,20 @@ const Article = () => {
             />
           </section>
           <section className="w-full md:w-4/5 mx-auto my-2 flex justify-between items-center gap-2.5">
-            <Button className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2">
-              Share
-            </Button>
+            <div className="flex gap-2.5">
+              <button
+                className={`min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2 ${
+                  article.status === "active"
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {capitalize(article.status)}
+              </button>
+              <button className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2">
+                Share
+              </button>
+            </div>
             {isAuthor && (
               <div className="flex gap-2.5">
                 <Link
@@ -69,7 +81,7 @@ const Article = () => {
               </div>
             )}
           </section>
-          <section className="min-h-fit w-full px-2 md:px-4 py-2">
+          <section className="min-h-fit w-full px-2 md:px-4 py-2 space-y-2">
             <h1 className="text-xl md:text-2xl xl:text-3xl text-center">
               {parser(article.title) || "Not Available"}
             </h1>

@@ -2,6 +2,7 @@ import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { updateIntoWebp } from "../utilities.js";
 import { Service } from "../../appwrite/configuration.js";
 import { Button, Container, EditorBox, Input, Select } from "../index.js";
 
@@ -22,22 +23,22 @@ const MetaForm = ({ article }) => {
   const submit = async (data) => {
     try {
       if (article) {
-        const file = data.picture[0]
-          ? await Service.fileUpload(data.picture[0])
-          : null;
+        const source = data.picture[0] ? data.picture[0] : null;
+        const webImage = source ? await updateIntoWebp(source) : source;
+        const file = webImage ? await Service.fileUpload(webImage) : webImage;
 
-        if (file) Service.fileDelete(article.picture);
+        if (file) Service.fileDelete(source);
 
         const metadata = await Service.documentUpdate(article.$id, {
           ...data,
-          picture: file ? file.$id : article.picture,
+          picture: file ? file.$id : source,
         });
 
         if (metadata) navigate(`/article/${metadata.$id}`);
       } else {
-        const file = data.picture[0]
-          ? await Service.fileUpload(data.picture[0])
-          : null;
+        const source = data.picture[0] ? data.picture[0] : null;
+        const webImage = source ? await updateIntoWebp(source) : source;
+        const file = webImage ? await Service.fileUpload(webImage) : webImage;
 
         if (file) data.picture = file.$id;
 
@@ -141,7 +142,7 @@ const MetaForm = ({ article }) => {
             <div className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2">
               <Select
                 label="Status: "
-                options={["Public", "Private"]}
+                options={["Active", "Inactive"]}
                 {...register("status", { required: true })}
                 className="rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
               />

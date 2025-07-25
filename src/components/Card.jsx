@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Service } from "../appwrite/configuration.js";
-import { converter } from "./utilities.js";
+import { updateIntoStr } from "./utilities.js";
 
 const Card = ({ $id, title, picture, content }) => {
   const source = picture ? Service.fileView(picture) : null;
-  const plaintext = content ? converter(content) : "No Data Found!";
+  const plaintext = content ? updateIntoStr(content) : "No Data Found!";
 
   return (
     <Link
