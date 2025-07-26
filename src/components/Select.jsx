@@ -8,7 +8,13 @@ const Select = (
   return (
     <div className="min-h-fit w-full">
       {label && <label htmlFor={selectId}>{label}</label>}
-      <select id={selectId} ref={ref} className={`${className}`} {...props}>
+      <select
+        id={selectId}
+        ref={ref}
+        className={`${className}`}
+        {...props}
+        defaultValue={options[0]}
+      >
         {options &&
           options.map((option) => (
             <option key={option} value={String(option).toLowerCase()}>

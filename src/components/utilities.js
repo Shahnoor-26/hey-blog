@@ -56,11 +56,28 @@ export const updateIntoWebp = async (file, quality = 0.75) => {
 
 // Function to capitalize every words
 export const capitalize = (str) => {
-  if (typeof str !== "string" || !str.trim()) return "";
+  try {
+    if (typeof str !== "string" || !str.trim()) return "";
 
-  return str
-    .trim()
-    .split(/\s+/)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+    return str
+      .trim()
+      .split(/\s+/)
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  } catch (error) {
+    console.log(error);
+    return "";
+  }
+};
+
+// Function to convert iso into string
+export const updateISO = (iso) => {
+  try {
+    if (typeof iso !== "string" || !iso.trim()) return "";
+
+    return new Date(iso).toLocaleDateString("en-GB");
+  } catch (error) {
+    console.log(error);
+    return "";
+  }
 };
