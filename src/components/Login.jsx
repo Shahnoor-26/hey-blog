@@ -31,19 +31,19 @@ const Login = () => {
   };
 
   return (
-    <section className="min-h-[60vh] md:min-h-[80vh] w-full flex justify-center items-center text-center font-semibold antialiased select-none">
-      <div className="w-fit sm:w-1/2 md:w-3/5 xl:w-2/5 mt-5 mb-5 p-2.5 md:p-5 border md:border-2 rounded text-base md:text-lg xl:text-xl">
+    <section className="min-h-[60vh] md:min-h-[80vh] w-full flex justify-center items-center bg-secondary-color text-primary-text text-center font-semibold antialiased select-none">
+      <div className="w-fit sm:w-1/2 md:w-3/5 xl:w-2/5 mt-5 mb-5 p-2.5 md:p-5 bg-primary-color border-secondary-accent border md:border-2 rounded text-base md:text-lg xl:text-xl">
         <div className="m-2 p-2 space-y-2 text-center">
           <Logo className="text-xl md:text-2xl xl:text-3xl font-bold" />{" "}
           {/* Insert Logo */}
-          <h2 className="text-xl md:text-2xl xl:text-3xl font-bold">
+          <h2 className="text-primary-accent text-xl md:text-2xl xl:text-3xl font-bold">
             Login Into Your Account
           </h2>
           <p className="text-sm md:text-base xl:text-lg">
             <span>Don't have an account?&nbsp;</span>
             <Link
               to={"/signup"}
-              className="transition-all duration-200 ease-in-out hover:underline"
+              className="transition-all duration-200 ease-in-out focus:outline-none focus:text-primary-accent focus:underline hover:text-primary-accent hover:underline"
             >
               Create Account
             </Link>
@@ -66,7 +66,7 @@ const Login = () => {
                   "Email address must be a valid address",
               },
             })}
-            className="w-full mb-2 px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
+            className="w-full mb-2 px-2 py-1 bg-secondary-color border-secondary-accent border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
           />
           <Input
             label="Password"
@@ -74,23 +74,23 @@ const Login = () => {
             placeholder="Enter your password"
             autoComplete="current-password"
             {...register("password", { required: true })}
-            className="w-full mb-2 px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-1 md:focus:ring-2"
+            className="w-full mb-2 px-2 py-1 bg-secondary-color border-secondary-accent border md:border-2 rounded text-sm md:text-base xl:text-lg transition-all duration-200 ease-in-out outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
           />
           <div className="flex gap-2.5">
             <Button
               children={"Login"}
               type="submit"
-              className="min-h-fit w-1/2 px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
+              className="min-h-fit w-1/2 px-2 md:px-4 py-1 md:py-2 bg-secondary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
             />
             <Button
               children={"Reset"}
               type="reset"
-              className="min-h-fit w-1/2 px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
+              className="min-h-fit w-1/2 px-2 md:px-4 py-1 md:py-2 bg-secondary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
             />
           </div>
         </form>
         {error && (
-          <div className="m-2 p-2 border md:border-2 rounded space-y-2 text-xs md:text-sm xl:text-base text-center text-wrap">
+          <div className="m-2 p-2 border-primary-accent border md:border-2 rounded space-y-2 text-xs md:text-sm xl:text-base text-center text-wrap">
             {error}
           </div>
         )}

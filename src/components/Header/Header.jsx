@@ -70,8 +70,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-20 font-semibold antialiased select-none">
-      <nav className="relative h-full w-full p-2 md:p-4 flex justify-between items-center gap-2.5 border-b md:border-b-2 text-base md:text-lg xl:text-xl">
+    <header className="sticky top-0 z-20 bg-primary-color text-primary-text font-semibold antialiased select-none">
+      <nav className="relative h-full w-full p-2 md:p-4 flex justify-between items-center gap-2.5 border-secondary-accent border-b md:border-b-2 text-base md:text-lg xl:text-xl">
         <section>
           <Link to={"/"} tabIndex={-1}>
             <Logo /> {/* Insert Logo */}
@@ -87,8 +87,8 @@ const Header = () => {
                       to={link.source}
                       className={({ isActive }) =>
                         `${
-                          isActive && "ring-1 md:ring-2"
-                        } min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2`
+                          isActive && "ring-primary-accent ring-1 md:ring-2"
+                        } min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-secondary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2`
                       }
                     >
                       {link.name}
@@ -100,38 +100,47 @@ const Header = () => {
               <li>
                 <Logout
                   children={"Logout"}
-                  className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
+                  className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-secondary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
                 />
               </li>
             )}
           </ul>
           <div className="h-auto w-auto flex items-center gap-2.5">
             <Button
-              className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 md:hidden border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
+              className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 md:hidden bg-secondary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
               onClick={hamburger}
             >
-              <MenuIcon className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7" />
+              <MenuIcon
+                className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
+                color="#000000"
+              />
             </Button>
             <Button
-              className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-1 md:focus:ring-2"
+              className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-secondary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
               onClick={switchStatus}
             >
               {themeStatus ? (
-                <MoonIcon className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7" />
+                <MoonIcon
+                  className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
+                  color="#000000"
+                />
               ) : (
-                <SunIcon className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7" />
+                <SunIcon
+                  className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
+                  color="#000000"
+                />
               )}
             </Button>
           </div>
         </section>
         <section
           id="menu-box"
-          className="absolute top-0 right-full h-screen w-full md:hidden backdrop-blur-xs transition-all duration-200 ease-in-out"
+          className="absolute top-0 right-full h-screen w-full md:hidden backdrop-blur-xl transition-all duration-200 ease-in-out"
         >
           <ul className="h-full w-full flex flex-col justify-center items-center gap-5 text-xl text-center">
             {status && (
               <li
-                className="h-auto w-4/5 sm:w-3/5 border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-2"
+                className="h-auto w-4/5 sm:w-3/5 border-secondary-accent border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-primary-accent focus:ring-2"
                 onClick={hamburger}
               >
                 <Logout
@@ -145,7 +154,7 @@ const Header = () => {
                 link.active && (
                   <li
                     key={link.name}
-                    className="h-auto w-4/5 sm:w-3/5 border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-2"
+                    className="h-auto w-4/5 sm:w-3/5 border-secondary-accent border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-primary-accent focus:ring-2"
                     onClick={hamburger}
                   >
                     <Link
@@ -157,12 +166,12 @@ const Header = () => {
                   </li>
                 )
             )}
-            <li className="h-auto w-4/5 sm:w-3/5 border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-2">
+            <li className="h-auto w-4/5 sm:w-3/5 border-secondary-accent border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-primary-accent focus:ring-2">
               <Button
                 className="block h-full w-full p-2 outline-none"
                 onClick={hamburger}
               >
-                <CrossIcon className="h-7 w-7 mx-auto" />
+                <CrossIcon className="h-7 w-7 mx-auto" color="#000000" />
               </Button>
             </li>
           </ul>

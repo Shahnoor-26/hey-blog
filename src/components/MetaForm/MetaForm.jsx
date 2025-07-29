@@ -98,18 +98,18 @@ const MetaForm = ({ article }) => {
   };
 
   return (
-    <Container className="font-semibold antialiased select-none">
+    <Container className="bg-secondary-color text-primary-text font-semibold antialiased select-none">
       <form
         onSubmit={handleSubmit(submit)}
         className="h-screen min-h-fit w-full p-2 md:flex text-base md:text-lg xl:text-xl"
       >
-        <section className="w-full md:w-1/2 md:p-2 md:border-r-2">
+        <section className="w-full md:w-1/2 md:p-2 md:border-secondary-accent md:border-r-2">
           <div className="w-full p-2">
             <Input
               label="Title: "
               placeholder="Enter article's title"
               {...register("title", { required: true })}
-              className="w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg outline-none focus:ring-1 md:focus:ring-2"
+              className="w-full px-2 py-1 bg-primary-color border-secondary-accent border md:border-2 rounded text-sm md:text-base xl:text-lg outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
             />
           </div>
           <div className="w-full p-2">
@@ -121,7 +121,7 @@ const MetaForm = ({ article }) => {
                 const slug = transformer(event.currentTarget.value);
                 setValue("documentId", slug, { shouldValidate: true });
               }}
-              className="w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg outline-none focus:ring-1 md:focus:ring-2"
+              className="w-full px-2 py-1 bg-primary-color border-secondary-accent border md:border-2 rounded text-sm md:text-base xl:text-lg outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
             />
           </div>
           <div className="w-full px-2 max-md:p-2">
@@ -134,7 +134,6 @@ const MetaForm = ({ article }) => {
             />
           </div>
         </section>
-
         <section className="w-full md:w-1/2 md:p-2">
           <div className="w-full p-2">
             <Input
@@ -142,33 +141,32 @@ const MetaForm = ({ article }) => {
               type="file"
               accept="image/png, image/jpg, image/jpeg, image/gif"
               {...register("picture", { required: !article })}
-              className="w-full px-2 py-1 border md:border-2 rounded text-sm md:text-base xl:text-lg outline-none focus:ring-1 md:focus:ring-2"
+              className="w-full px-2 py-1 bg-primary-color border-secondary-accent border md:border-2 rounded text-sm md:text-base xl:text-lg outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
             />
           </div>
-
           {article && article.picture && (
             <div className="h-2/5 md:h-1/2 xl:h-3/5 w-full p-2">
               <img
                 src={Service.fileView(article.picture)}
                 alt={article.title || "Not Available"}
-                className="h-full w-full border md:border-2 rounded object-cover"
+                className="h-full w-full border-secondary-accent border md:border-2 rounded object-cover"
               />
             </div>
           )}
 
           <div className="w-full p-2 flex justify-between items-center">
-            <div className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded cursor-pointer">
+            <div className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-primary-color border-secondary-accent border md:border-2 rounded cursor-pointer">
               <Select
                 label="Status: "
                 options={["Active", "Inactive"]}
                 {...register("status", { required: true })}
-                className="rounded cursor-pointer"
+                className="rounded cursor-pointer focus:outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
               />
             </div>
             <Button
               type="submit"
               children={article ? "Update Article" : "Create Article"}
-              className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 border md:border-2 rounded cursor-pointer"
+              className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-primary-color border-secondary-accent border md:border-2 rounded cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
             />
           </div>
         </section>

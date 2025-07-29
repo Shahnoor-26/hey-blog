@@ -21,10 +21,12 @@ const Card = ({ $id, title, picture, content }) => {
         />
       </div>
       <div>
-        <h3 className="px-2 py-1 text-base md:text-lg xl:text-xl text-center truncate">
+        <h3 className="text-primary-text px-2 py-1 text-base md:text-lg xl:text-xl text-center truncate">
           {title}
         </h3>
-        <div className="px-2 truncate opacity-80">{plaintext}</div>
+        <div className="px-2 text-secondary-text truncate opacity-80">
+          {plaintext}
+        </div>
       </div>
     </Link>
   );
