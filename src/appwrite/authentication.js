@@ -15,15 +15,17 @@ class AuthService {
 
   signup = async ({ email, password, name }) => {
     try {
-      const user = await this.account.create(
+      const userdata = await this.account.create(
         ID.unique(),
         email,
         password,
         name
       );
 
-      if (user) await this.login({ email, password });
-      else return user;
+      if (userdata) await this.login({ email, password });
+      const status = await this.currentUser();
+
+      return { userdata, status };
     } catch (error) {
       console.log("Appwrite Service Error: Signup ", error);
       return false;

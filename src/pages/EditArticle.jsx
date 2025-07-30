@@ -1,24 +1,34 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Service } from "../appwrite/configuration.js";
-import { MetaForm } from "../components";
+import { Container, MetaForm, Spin } from "../components";
 
 const EditArticle = () => {
+  const [spin, updateSpin] = useState(true);
   const [article, updateArticle] = useState(null);
-  const navigate = useNavigate();
+
   const documentId = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (documentId) {
+    if (documentId.documentId) {
       Service.findDocument(documentId.documentId)
-        .then((document) => {
-          if (document) updateArticle(document);
-        })
-        .catch((error) => console.log("Unable To Find Article! ", error));
+        .then((document) => document && updateArticle(document))
+        .catch((error) => console.log(error))
+        .finally(() => updateSpin(false));
     } else navigate("/");
   }, [documentId.documentId, navigate]);
 
-  return article && <MetaForm article={article} />;
+  if (spin) {
+    return (
+      <Container
+        children={<Spin />}
+        className={"h-screen w-full bg-secondary-color"}
+      />
+    );
+  } else {
+    return <MetaForm article={article && article} />;
+  }
 };
 
 export default EditArticle;

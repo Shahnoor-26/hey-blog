@@ -11,10 +11,10 @@
 
 html.dark,
 [data-status="dark"] {
-  --color-primary-color: #fafafa;
-  --color-secondary-color: #f4f4f4;
-  --color-primary-text: #000000;
-  --color-secondary-text: #101010;
+  --color-primary-color: #101010;
+  --color-secondary-color: #050505;
+  --color-primary-text: #ffffff;
+  --color-secondary-text: #f4f4f4;
   --color-primary-accent: #fea10a;
   --color-secondary-accent: #693c9d;
 }

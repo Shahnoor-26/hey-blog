@@ -3,43 +3,50 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Service } from "../appwrite/configuration.js";
 import { capitalize, updateISO } from "../components/utilities.js";
-import { Button, Container } from "../components";
+import { Button, Container, Spin } from "../components";
 import parser from "html-react-parser";
 
 const Article = () => {
+  const [spin, updateSpin] = useState(true);
   const [article, updateArticle] = useState(null);
-  const navigate = useNavigate();
+
   const documentId = useParams();
   const userdata = useSelector((state) => state.auth.userdata);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (documentId) {
+    if (documentId.documentId) {
       Service.findDocument(documentId.documentId)
-        .then((document) => {
-          if (document) updateArticle(document);
-        })
-        .catch((error) => console.log("Unable To Find Article! ", error));
+        .then((document) => document && updateArticle(document))
+        .catch((error) => console.log(error))
+        .finally(() => updateSpin(false));
     } else navigate("/");
   }, [documentId.documentId, navigate]);
 
   const isAuthor =
     article && userdata ? article.userId === userdata.$id : false;
 
-  const kill = () => {
-    try {
-      Service.documentDelete(documentId.documentId).then((status) => {
-        if (status) {
-          Service.fileDelete(article.picture);
+  const discard = () => {
+    if (documentId.documentId) {
+      Service.documentDelete(documentId.documentId)
+        .then((status) => {
+          if (status) Service.fileDelete(article.picture);
           navigate("/");
-        }
-      });
-    } catch (error) {
-      console.log("Unable To Delete Article! ", error);
+        })
+        .catch((error) => console.log(error));
     }
   };
 
-  return (
-    article && (
+  if (spin) {
+    return (
+      <Container
+        children={<Spin />}
+        className={"h-screen w-full bg-secondary-color"}
+      />
+    );
+  } else if (article) {
+    return (
       <Container
         className={
           "bg-secondary-color text-primary-text font-semibold antialiased select-none"
@@ -78,7 +85,7 @@ const Article = () => {
                   Edit
                 </Link>
                 <Button
-                  onClick={kill}
+                  onClick={discard}
                   className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-primary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
                 >
                   Delete
@@ -97,7 +104,9 @@ const Article = () => {
           <section className="min-h-fit w-full md:w-11/12 mx-auto p-2 flex justify-between items-center gap-2.5 text-sm md:text-base xl:text-lg">
             <p className="p-2">
               <span className="text-secondary-accent">AUTHOR: </span>
-              <span className="text-secondary-text">{article.$id}</span>
+              <span className="text-secondary-text">
+                {article.$id || "Unknown"}
+              </span>
             </p>
             <p className="p-2">
               <span className="text-secondary-accent">DATE: </span>
@@ -108,8 +117,8 @@ const Article = () => {
           </section>
         </div>
       </Container>
-    )
-  );
+    );
+  } else navigate("/");
 };
 
 export default Article;

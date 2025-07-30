@@ -1,19 +1,24 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Service } from "../appwrite/configuration.js";
-import { Container, Card, Button } from "../components/index.js";
+import { Container, Card, Button, Spin } from "../components/index.js";
 
 const LIMIT = 8;
 
 const Articles = () => {
   const [list, updateList] = useState([]);
   const [total, updateTotal] = useState(LIMIT);
+  const [spin, updateSpin] = useState(true);
+
+  const status = useSelector((state) => state.auth.status);
 
   useEffect(() => {
-    Service.findDocuments([])
-      .then((collection) => {
-        if (collection) updateList(collection.documents);
-      })
-      .catch((error) => console.log("Unable to find articles: ", error));
+    if (status) {
+      Service.findDocuments([])
+        .then((collection) => collection && updateList(collection.documents))
+        .catch((error) => console.log(error))
+        .finally(() => updateSpin(false));
+    }
   }, []);
 
   const handleLoad = () => {
@@ -28,6 +33,7 @@ const Articles = () => {
         "min-h-screen w-full bg-secondary-color text-primary-text font-semibold antialiased select-none"
       }
     >
+      {spin && <Spin />}
       <section className="h-full w-full p-2 flex justify-center text-xs md:text-sm xl:text-base">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-8">
           {results?.map((data) => (
