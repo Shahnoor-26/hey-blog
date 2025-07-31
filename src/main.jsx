@@ -3,18 +3,18 @@ import { Provider } from "react-redux";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from "./store/store.js";
-
-import Layout from "./Layout.jsx";
-import { Protected } from "./components";
+import { Protected } from "./components/index.js";
 import {
+  Home,
+  Login,
+  Signup,
+  Article,
+  Articles,
   AddArticle,
   EditArticle,
-  Articles,
-  Article,
-  Signup,
-  Login,
-  Home,
-} from "./pages";
+} from "./pages/index.js";
+
+import Layout from "./Layout.jsx";
 
 import "./css/index.css";
 import "./css/theme.css";
