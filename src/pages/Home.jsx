@@ -1,28 +1,44 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Service } from "../appwrite/configuration.js";
-import { Button, Card, Container, Spin } from "../components";
+import { initStore } from "../store/draftSlice.js";
+import { Container, Spin, Card, Button } from "../components/index.js";
 
 const LIMIT = 8;
 
 const Home = () => {
   const [list, updateList] = useState([]);
-  const [total, updateTotal] = useState(LIMIT);
   const [spin, updateSpin] = useState(true);
+  const [total, updateTotal] = useState(LIMIT);
+
+  const dispatch = useDispatch();
 
   const status = useSelector((state) => state.auth.status);
+  const occupied = useSelector((state) => state.draft.occupied);
+  const documents = useSelector((state) => state.draft.documents);
 
   useEffect(() => {
-    if (status) {
+    if (!status) return updateSpin(false);
+
+    if (occupied && documents?.length > 0) {
+      const collection = documents.filter((doc) => doc.status === "active");
+      updateList(collection);
+      updateSpin(false);
+    } else {
       Service.findDocuments()
-        .then((collection) => collection && updateList(collection.documents))
+        .then((collection) => {
+          if (collection.documents) {
+            updateList(collection.documents);
+            dispatch(initStore({ documents: collection.documents }));
+          }
+        })
         .catch((error) => console.log(error))
         .finally(() => updateSpin(false));
     }
-  }, []);
+  }, [status, occupied, documents, dispatch]);
 
-  const handleLoad = () => {
+  const handlePush = () => {
     updateTotal((prev) => Math.min(prev + LIMIT, list.length));
   };
 
@@ -51,11 +67,10 @@ const Home = () => {
         {total < list.length && (
           <section className="w-full px-2 py-4 bg-primary-color flex justify-center border-secondary-accent border-t md:border-t-2 text-base md:text-lg xl:text-xl">
             <Button
-              onClick={handleLoad}
               className="min-h-fit w-4/5 md:w-2/5 xl:w-1/4 px-2 md:px-4 py-1 md:py-2 bg-secondary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2 hover:ring-primary-accent hover:ring-1 md:hover:ring-2 hover:scale-105"
-            >
-              Discover More
-            </Button>
+              onClick={handlePush}
+              children={"Discover More"}
+            />
           </section>
         )}
       </Container>
@@ -67,6 +82,7 @@ const Home = () => {
           "bg-secondary-color text-primary-text font-semibold antialiased select-none"
         }
       >
+        {spin && <Spin />}
         <section className="min-h-[500px] w-full p-2 flex flex-col justify-center items-center border-secondary-accent border-b md:border-b-2 text-base md:text-lg xl:text-xl">
           <h2 className="text-primary-accent text-xl md:text-2xl xl:text-3xl font-bold">
             Welcome To HeyBlog
