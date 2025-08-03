@@ -38,6 +38,25 @@ const Article = () => {
     }
   };
 
+  const share = async () => {
+    try {
+      const data = {
+        title: "Discover Draftoria",
+        text: "Explore this unique platform — I think you'll enjoy it!",
+        url: window.location.href,
+      };
+
+      if (navigator.share) {
+        await navigator.share(data);
+      } else {
+        await navigator.clipboard.writeText(data.url);
+        alert("Sharing not supported. Link copied to clipboard.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (spin) {
     return (
       <Container
@@ -72,7 +91,10 @@ const Article = () => {
               >
                 {capitalize(article.status)}
               </button>
-              <button className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-primary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2">
+              <button
+                className="min-h-fit min-w-fit px-2 md:px-4 py-1 md:py-2 bg-primary-color border-secondary-accent border md:border-2 rounded transition-all duration-200 ease-in-out cursor-pointer outline-none focus:ring-primary-accent focus:ring-1 md:focus:ring-2"
+                onClick={share}
+              >
                 Share
               </button>
             </div>

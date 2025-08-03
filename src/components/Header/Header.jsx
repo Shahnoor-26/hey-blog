@@ -112,7 +112,7 @@ const Header = () => {
             >
               <MenuIcon
                 className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
-                color="#000000"
+                color="#693c9d"
               />
             </Button>
             <Button
@@ -122,12 +122,12 @@ const Header = () => {
               {themeStatus ? (
                 <MoonIcon
                   className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
-                  color="#000000"
+                  color="#693c9d"
                 />
               ) : (
                 <SunIcon
                   className="h-5 md:h-6 xl:h-7 w-5 md:w-6 xl:w-7"
-                  color="#000000"
+                  color="#693c9d"
                 />
               )}
             </Button>

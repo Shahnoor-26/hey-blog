@@ -1,124 +1,61 @@
 @import "tailwindcss";
 
-/* spin style */
+/* motion spin */
 #spin {
-  width: 64px;
-  aspect-ratio: 1;
-  background: radial-gradient(farthest-side at bottom right, #f10c49 90%, #0000),
-    radial-gradient(farthest-side at bottom left, #f10c49 90%, #0000),
-    radial-gradient(farthest-side at top right, #f10c49 90%, #0000),
-    radial-gradient(farthest-side at top left, #f10c49 90%, #0000),
-    radial-gradient(farthest-side at bottom right, #f4dd51 90%, #0000),
-    radial-gradient(farthest-side at bottom left, #f4dd51 90%, #0000),
-    radial-gradient(farthest-side at top right, #f4dd51 90%, #0000),
-    radial-gradient(farthest-side at top left, #f4dd51 90%, #0000),
-    radial-gradient(farthest-side at bottom right, #e3aad6 90%, #0000),
-    radial-gradient(farthest-side at bottom left, #e3aad6 90%, #0000),
-    radial-gradient(farthest-side at top right, #e3aad6 90%, #0000),
-    radial-gradient(farthest-side at top left, #e3aad6 90%, #0000);
-  background-size: 25% 25%;
-  background-repeat: no-repeat;
-  animation: launch 2s infinite;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #693c9d #693c9d transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
 
-/* spin animation */
-@keyframes launch {
+#spin::after,
+#spin::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #fea10a #fea10a;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: focus 0.5s linear infinite;
+  transform-origin: center center;
+}
+
+#spin::before {
+  width: 32px;
+  height: 32px;
+  border-color: #693c9d #693c9d transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+/* motion rotation */
+@keyframes rotation {
   0% {
-    background-position: calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3);
-  }
-  16.67% {
-    background-position: calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3);
-  }
-  33.33% {
-    background-position: calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3),
-      calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3);
-  }
-  50% {
-    background-position: calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3),
-      calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3),
-      calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3);
-  }
-  66.67% {
-    background-position: calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3),
-      calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3);
-  }
-  83.33% {
-    background-position: calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(0 * 100% / 3) calc(0 * 100% / 3),
-      calc(3 * 100% / 3) calc(0 * 100% / 3),
-      calc(0 * 100% / 3) calc(3 * 100% / 3),
-      calc(3 * 100% / 3) calc(3 * 100% / 3);
+    transform: rotate(0deg);
   }
   100% {
-    background-position: calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3),
-      calc(1 * 100% / 3) calc(1 * 100% / 3),
-      calc(2 * 100% / 3) calc(1 * 100% / 3),
-      calc(1 * 100% / 3) calc(2 * 100% / 3),
-      calc(2 * 100% / 3) calc(2 * 100% / 3);
+    transform: rotate(360deg);
+  }
+}
+
+/* motion focus */
+@keyframes focus {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
   }
 }
