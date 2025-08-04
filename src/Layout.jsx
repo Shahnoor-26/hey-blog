@@ -14,7 +14,7 @@ const Layout = () => {
   useEffect(() => {
     Auth.currentUser()
       .then((userdata) =>
-        userdata ? dispatch(login(userdata)) : dispatch(logout())
+        userdata ? dispatch(login({ userdata: userdata })) : dispatch(logout())
       )
       .catch((error) => console.log(error))
       .finally(() => updateSpin(false));

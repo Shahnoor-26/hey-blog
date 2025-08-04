@@ -25,7 +25,7 @@ const Login = () => {
           Auth.currentUser()
             .then((userdata) => {
               if (userdata) {
-                dispatch(loginStore(userdata));
+                dispatch(loginStore({ userdata: userdata }));
                 navigate("/");
               }
             })

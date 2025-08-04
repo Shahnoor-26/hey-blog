@@ -20,7 +20,7 @@ const Signup = () => {
 
     Auth.signup(data)
       .then(({ userdata, status }) => {
-        if (status) dispatch(loginStore(userdata));
+        if (status) dispatch(loginStore({ userdata: userdata }));
         navigate("/");
       })
       .catch((error) => updateError(error))

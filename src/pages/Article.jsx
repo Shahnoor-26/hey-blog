@@ -29,17 +29,20 @@ const Article = () => {
 
   const discard = () => {
     if (documentId.documentId) {
+      updateSpin(true);
       Service.documentDelete(documentId.documentId)
         .then((status) => {
           if (status) Service.fileDelete(article.picture);
           navigate("/");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error))
+        .finally(() => updateSpin(false));
     }
   };
 
   const share = async () => {
     try {
+      updateSpin(true);
       const data = {
         title: "Discover Draftoria",
         text: "Explore this unique platform — I think you'll enjoy it!",
@@ -47,8 +50,10 @@ const Article = () => {
       };
 
       if (navigator.share) {
+        updateSpin(false);
         await navigator.share(data);
       } else {
+        updateSpin(false);
         await navigator.clipboard.writeText(data.url);
         alert("Sharing not supported. Link copied to clipboard.");
       }
