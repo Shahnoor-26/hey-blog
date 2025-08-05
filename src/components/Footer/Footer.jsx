@@ -16,10 +16,9 @@ const Footer = () => {
         <section className="w-full md:w-1/2 px-2 py-4 flex md:flex-col justify-between gap-2.5">
           <div className="space-y-2">
             <Link to={"/"} tabIndex={-1} className="block">
-              <Logo className="text-xl md:text-2xl xl:text-3xl" />
-              {/* Insert Logo */}
+              <Logo className="h-14 md:h-16 xl:h-20 w-fit" />
             </Link>
-            <p className="text-sm md:text-base xl:text-lg">
+            <p className="text-sm md:text-base xl:text-lg font-normal">
               &copy; All Rights Reserved
             </p>
           </div>

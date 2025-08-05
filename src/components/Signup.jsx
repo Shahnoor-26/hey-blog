@@ -33,7 +33,7 @@ const Signup = () => {
       <section className="min-h-[60vh] md:min-h-[80vh] w-full flex justify-center items-center bg-secondary-color text-primary-text text-center font-semibold antialiased select-none">
         <div className="w-fit sm:w-1/2 md:w-3/5 xl:w-2/5 mt-5 mb-5 p-2.5 md:p-5 bg-primary-color border-secondary-accent border md:border-2 rounded text-base md:text-lg xl:text-xl">
           <div className="m-2 p-2 space-y-2 text-center">
-            <Logo className="text-xl md:text-2xl xl:text-3xl font-bold" />
+            <Logo className="h-20 md:h-24 xl:h-28 w-fit mx-auto" />
             <h2 className="text-primary-accent text-xl md:text-2xl xl:text-3xl font-bold">
               Signup To Create Account
             </h2>

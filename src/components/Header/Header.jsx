@@ -74,7 +74,7 @@ const Header = () => {
       <nav className="relative h-full w-full p-2 md:p-4 flex justify-between items-center gap-2.5 border-secondary-accent border-b md:border-b-2 text-base md:text-lg xl:text-xl">
         <section>
           <Link to={"/"} tabIndex={-1}>
-            <Logo /> {/* Insert Logo */}
+            <Logo className="h-8 md:h-10 xl:h-12 w-fit" />
           </Link>
         </section>
         <section className="h-auto w-auto flex items-center gap-2.5">
@@ -137,7 +137,7 @@ const Header = () => {
           id="menu-box"
           className="absolute top-0 right-full h-screen w-full md:hidden backdrop-blur-xl transition-all duration-200 ease-in-out"
         >
-          <ul className="h-full w-full flex flex-col justify-center items-center gap-5 text-xl text-center">
+          <ul className="h-full w-full flex flex-col justify-center items-center gap-5 text-xl text-center text-primary-accent">
             {status && (
               <li
                 className="h-auto w-4/5 sm:w-3/5 border-secondary-accent border-2 rounded-full transition-all duration-200 ease-in-out outline-none focus:ring-primary-accent focus:ring-2"
@@ -171,7 +171,7 @@ const Header = () => {
                 className="block h-full w-full p-2 outline-none"
                 onClick={hamburger}
               >
-                <CrossIcon className="h-7 w-7 mx-auto" color="#000000" />
+                <CrossIcon className="h-7 w-7 mx-auto" color="#fea10a" />
               </Button>
             </li>
           </ul>

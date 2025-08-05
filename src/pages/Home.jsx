@@ -85,7 +85,7 @@ const Home = () => {
         {spin && <Spin />}
         <section className="min-h-[500px] w-full p-2 flex flex-col justify-center items-center border-secondary-accent border-b md:border-b-2 text-base md:text-lg xl:text-xl">
           <h2 className="text-primary-accent text-xl md:text-2xl xl:text-3xl font-bold">
-            Welcome To HeyBlog
+            WELCOME TO MINDTORIA
           </h2>
           <p className="m-2 md:m-4">Your Space to Learn, Share, and Grow</p>
           <div className="flex justify-center items-center gap-2.5">
@@ -105,13 +105,13 @@ const Home = () => {
         </section>
         <section className="min-h-[500px] w-full p-2 space-y-4 flex flex-col justify-center items-center text-base md:text-lg xl:text-xl text-center">
           <h2 className="text-primary-accent text-xl md:text-2xl xl:text-3xl font-bold">
-            Our Mission
+            OUR MISSION
           </h2>
           <p className="w-full md:w-3/4">
-            HeyBlog is a simple and user-friendly platform designed for
+            Mindtoria is a simple and user-friendly platform designed for
             students, educators, and lifelong learners to write and read
             educational articles. Whether you're sharing knowledge or exploring
-            new topics, HeyBlog makes learning more accessible for everyone.
+            new topics, Mindtoria makes learning more accessible for everyone.
           </p>
           <p className="w-full md:w-3/4">
             Our mission is to encourage open learning and self-expression
