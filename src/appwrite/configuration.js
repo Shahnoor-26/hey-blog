@@ -38,10 +38,9 @@ class DataService {
         }
       );
 
-      if (document) return document;
-      else return false;
+      return document ? document : false;
     } catch (error) {
-      console.log("Appwrite Service Error: Document Create ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -60,10 +59,9 @@ class DataService {
         }
       );
 
-      if (document) return document;
-      else return false;
+      return document ? document : false;
     } catch (error) {
-      console.log("Appwrite Service Error: Document Update ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -75,9 +73,10 @@ class DataService {
         env.appwrite_collection_id,
         documentId
       );
+
       return true;
     } catch (error) {
-      console.log("Appwrite Service Error: Document Delete ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -90,10 +89,9 @@ class DataService {
         documentId
       );
 
-      if (document) return document;
-      else return false;
+      return document ? document : false;
     } catch (error) {
-      console.log("Appwrite Service Error: Find Document ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -106,10 +104,9 @@ class DataService {
         queries
       );
 
-      if (documents) return documents;
-      else return false;
+      return documents ? documents : false;
     } catch (error) {
-      console.log("Appwrite Service Error: Find All Document ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -123,10 +120,9 @@ class DataService {
         file
       );
 
-      if (response) return response;
-      else return false;
+      return response ? response : false;
     } catch (error) {
-      console.log("Appwrite Service Error: File Upload ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -136,7 +132,7 @@ class DataService {
       await this.storage.deleteFile(env.appwrite_storage_id, fileId);
       return true;
     } catch (error) {
-      console.log("Appwrite Service Error: File Delete ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -145,10 +141,9 @@ class DataService {
     try {
       const link = this.storage.getFileView(env.appwrite_storage_id, fileId);
 
-      if (link) return link;
-      else return false;
+      return link ? link : false;
     } catch (error) {
-      console.log("Appwrite Service Error: File View ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };

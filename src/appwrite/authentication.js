@@ -27,8 +27,8 @@ class AuthService {
 
       return { userdata, status };
     } catch (error) {
-      console.log("Appwrite Service Error: Signup ", error);
-      return false;
+      console.log(`appwrite service error: ${error.message}`);
+      return { userdata: error.message, status: false };
     }
   };
 
@@ -36,8 +36,8 @@ class AuthService {
     try {
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
-      console.log("Appwrite Service Error: Login ", error);
-      return false;
+      console.log(`appwrite service error: ${error.message}`);
+      return error.message;
     }
   };
 
@@ -45,7 +45,7 @@ class AuthService {
     try {
       return await this.account.deleteSessions();
     } catch (error) {
-      console.log("Appwrite Service Error: Logout ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };
@@ -54,10 +54,9 @@ class AuthService {
     try {
       const userdata = await this.account.get();
 
-      if (userdata) return userdata;
-      else return false;
+      return userdata ? userdata : false;
     } catch (error) {
-      console.log("Appwrite Service Error: Signup ", error);
+      console.log(`appwrite service error: ${error.message}`);
       return false;
     }
   };

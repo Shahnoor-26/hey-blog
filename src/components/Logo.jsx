@@ -2,7 +2,7 @@ const Logo = ({ className = "" }) => {
   return (
     <div className={className}>
       <img
-        src="./public/assets/mindtoria-2.png"
+        src="./assets/mindtoria.png"
         alt="mindtoria"
         className="h-full w-full object-contain"
         loading="lazy"

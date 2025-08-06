@@ -20,8 +20,10 @@ const Signup = () => {
 
     Auth.signup(data)
       .then(({ userdata, status }) => {
-        if (status) dispatch(loginStore({ userdata: userdata }));
-        navigate("/");
+        if (status) {
+          dispatch(loginStore({ userdata: userdata }));
+          navigate("/");
+        } else updateError(userdata);
       })
       .catch((error) => updateError(error))
       .finally(() => updateSpin(false));

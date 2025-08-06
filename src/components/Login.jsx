@@ -30,6 +30,8 @@ const Login = () => {
               }
             })
             .catch((error) => updateError(error));
+        } else {
+          updateError(session);
         }
       })
       .catch((error) => updateError(error))
