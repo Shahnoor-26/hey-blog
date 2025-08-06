@@ -28,7 +28,9 @@ const Articles = () => {
             dispatch(initStore({ documents: collection.documents }));
           }
         })
-        .catch((error) => console.error(error))
+        .catch((error) =>
+          console.log(`website service error: ${error.message}`)
+        )
         .finally(() => updateSpin(false));
     }
   }, [documents]);

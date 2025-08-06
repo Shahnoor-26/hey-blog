@@ -10,7 +10,7 @@ export const updateIntoStr = (htmlStr) => {
     const document = reader.parseFromString(htmlStr, "text/html");
     return (document.body.textContent || "").trim();
   } catch (error) {
-    console.error(error);
+    console.log(`website service error: ${error.message}`);
     return "";
   }
 };
@@ -26,7 +26,7 @@ export const capitalize = (str) => {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   } catch (error) {
-    console.log(error);
+    console.log(`website service error: ${error.message}`);
     return "";
   }
 };
@@ -38,7 +38,7 @@ export const updateISO = (iso) => {
 
     return new Date(iso).toLocaleDateString("en-GB");
   } catch (error) {
-    console.log(error);
+    console.log(`website service error: ${error.message}`);
     return "";
   }
 };

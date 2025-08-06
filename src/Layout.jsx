@@ -16,7 +16,7 @@ const Layout = () => {
       .then((userdata) =>
         userdata ? dispatch(login({ userdata: userdata })) : dispatch(logout())
       )
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(`website service error: ${error.message}`))
       .finally(() => updateSpin(false));
 
     const status = localStorage.getItem("dark-status")?.includes("true");

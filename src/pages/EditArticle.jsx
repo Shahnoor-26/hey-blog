@@ -14,7 +14,9 @@ const EditArticle = () => {
     if (documentId.documentId) {
       Service.findDocument(documentId.documentId)
         .then((document) => document && updateArticle(document))
-        .catch((error) => console.log(error))
+        .catch((error) =>
+          console.log(`website service error: ${error.message}`)
+        )
         .finally(() => updateSpin(false));
     } else navigate("/");
   }, [documentId.documentId, navigate]);

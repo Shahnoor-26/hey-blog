@@ -67,7 +67,7 @@ const MetaForm = ({ article }) => {
           navigate(`/article/${metadata.$id}`);
         }
       } catch (error) {
-        console.log(error);
+        console.log(`website service error: ${error.message}`);
       }
     } else {
       try {
@@ -82,7 +82,7 @@ const MetaForm = ({ article }) => {
           navigate(`/article/${metadata.$id}`);
         }
       } catch (error) {
-        console.log(error);
+        console.log(`website service error: ${error.message}`);
       }
     }
   };

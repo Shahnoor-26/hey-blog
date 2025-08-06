@@ -14,7 +14,7 @@ const Logout = ({ children, className = "" }) => {
 
     Auth.logout()
       .then(() => dispatch(logoutStore()))
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(`website service error: ${error.message}`))
       .finally(() => updateSpin(false));
   };
 

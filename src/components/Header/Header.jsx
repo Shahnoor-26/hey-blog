@@ -23,7 +23,7 @@ const Header = () => {
         dispatch(themeUpdate({ themeStatus: true }));
       }
     } catch (error) {
-      console.log("");
+      console.log(`website service error: ${error.message}`);
     }
   };
 
@@ -37,7 +37,7 @@ const Header = () => {
         menu.classList.replace("right-0", "right-full");
       }
     } catch (error) {
-      console.log("");
+      console.log(`website service error: ${error.message}`);
     }
   };
 

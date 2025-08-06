@@ -19,7 +19,9 @@ const Article = () => {
     if (documentId.documentId) {
       Service.findDocument(documentId.documentId)
         .then((document) => document && updateArticle(document))
-        .catch((error) => console.log(error))
+        .catch((error) =>
+          console.log(`website service error: ${error.message}`)
+        )
         .finally(() => updateSpin(false));
     } else navigate("/");
   }, [documentId.documentId, navigate]);
@@ -35,7 +37,9 @@ const Article = () => {
           if (status) Service.fileDelete(article.picture);
           navigate("/");
         })
-        .catch((error) => console.log(error))
+        .catch((error) =>
+          console.log(`website service error: ${error.message}`)
+        )
         .finally(() => updateSpin(false));
     }
   };
@@ -58,7 +62,7 @@ const Article = () => {
         alert("Sharing not supported. Link copied to clipboard.");
       }
     } catch (error) {
-      console.log(error);
+      console.log(`website service error: ${error.message}`);
     }
   };
 
